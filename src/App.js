@@ -1,10 +1,21 @@
 import React from "react";
-import Auth from "./components/Auth";
+import {
+  Route,
+  Routes,
+  unstable_HistoryRouter as HistoryRouter,
+} from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import { createBrowserHistory } from "history";
+
+export const history = createBrowserHistory();
+
 function App() {
   return (
-    <div className="App">
-      <Auth />
-    </div>
+    <HistoryRouter history={history}>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+      </Routes>
+    </HistoryRouter>
   );
 }
 
