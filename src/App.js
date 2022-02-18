@@ -1,7 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React from "react";
+import "./App.css";
+import ModalPop from "./ModalPop";
 
 function App() {
+  const [modalIsOpen, setModalIsOpen] = React.useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -13,11 +16,17 @@ function App() {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
+        <button
+          onClick={() => {
+            setModalIsOpen(true);
+          }}>
+          click modal
+        </button>
       </header>
+      <ModalPop isOpen={modalIsOpen} modalClose={false} />
     </div>
   );
 }
