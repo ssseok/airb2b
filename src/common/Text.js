@@ -51,4 +51,5 @@ const P = styled.p`
   ${(props) => (props.is_flex ? `display: flex; align-items: center; ` : "")}
 `;
 
+
 export default Text;

@@ -7,6 +7,7 @@ import {
 import { createBrowserHistory } from "history";
 import Signup from "../pages/Signup";
 
+
 export const history = createBrowserHistory();
 
 function App() {
