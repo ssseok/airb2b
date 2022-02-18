@@ -22,7 +22,6 @@
 html,
 body {
   height: 100%;
-  background: rgb(196, 196, 196);
   font-family: "Noto Sans KR", sans-serif;
 }
 body::-webkit-scrollbar {

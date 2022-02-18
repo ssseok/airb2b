@@ -1,8 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
-
+import React from "react";
+import Auth from "./components/Auth";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Auth />
+    </div>
+  );
 }
 
 export default App;
