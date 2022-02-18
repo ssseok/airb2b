@@ -59,9 +59,9 @@ https://www.notion.so/4878cf7d1654460496d760f6c0987f4e?v=5400aefc1bc746b189549e1
 
 ## ⚒️ 3조 와이어 프레임 ⚒️
 
-</detail>
+</details>
  <summary>자세히 보기</summary>
- </detail>
+ </details>
 
 ## ✌🏻 개인 역할 및 트러블슈팅 해결과정
 
