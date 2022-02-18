@@ -37,7 +37,7 @@ Web Site :
 <details>
  <summary>자세히 보기</summary>
 https://www.notion.so/4878cf7d1654460496d760f6c0987f4e?v=5400aefc1bc746b189549e162fc4af0a
- </detail>
+ </details>
 
 ## 🔨사용한 기술 스택
 
