@@ -1,6 +1,7 @@
 import Button from "./Button";
 import Input from "./Input";
+import PaddingBox from "./PaddingBox";
 import Text from "./Text";
-import Grid from "./Grid";
 
-export { Button, Input, Text, Grid };
+export { Button, Input, PaddingBox, Text };
+

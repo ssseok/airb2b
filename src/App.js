@@ -4,8 +4,9 @@ import {
   Routes,
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
 import { createBrowserHistory } from "history";
+import Signup from "../pages/Signup";
+
 
 export const history = createBrowserHistory();
 
@@ -13,7 +14,7 @@ function App() {
   return (
     <HistoryRouter history={history}>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </HistoryRouter>
   );

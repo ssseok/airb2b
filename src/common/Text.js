@@ -1,41 +1,55 @@
-import styled from "styled-components";
 import React from "react";
-
-const TextBlock = styled.p`
-  font-size: ${(props) => (props.size ? props.size : "")};
-  font-weight: ${(props) => (props.bold ? props.bold : "")};
-  color: ${(props) => (props.color ? props.color : "")};
-  margin: ${(props) => (props.margin ? props.margin : "")};
-  text-align: ${(props) => (props.text_align ? props.text_align : "")};
-  width: 100%;
-  line-height: 110%;
-  .user_name {
-    font-size: 1.7rem;
-    font-weight: 600;
-  }
-`;
+import styled from "styled-components";
 
 const Text = (props) => {
-  const { size, bold, color, margin, text_align, children, onClick } = props;
+  const {
+    bold,
+    color,
+    size,
+    children,
+    margin,
+    _onClick,
+    is_flex,
+    width,
+    right,
+  } = props;
+
   const styles = {
-    size: size,
     bold: bold,
     color: color,
-    margin: margin,
-    text_align: text_align,
-    onClick: onClick, // 현석이가 추가
+    size: size,
+    margin,
+    _onClick: { _onClick },
+    is_flex,
+    width,
+    right,
   };
-  return <TextBlock {...styles}>{children}</TextBlock>;
+  return (
+    <P {...styles} onClick={_onClick}>
+      {children}
+    </P>
+  );
 };
 
 Text.defaultProps = {
   children: null,
-  text_align: false,
-  size: "1rem",
   bold: false,
   color: "#222831",
-  margin: "",
-  onClick: () => {}, // 현석이가 추가
+  size: "14px",
+  margin: false,
+  _onClick: () => {},
+  is_flex: false,
 };
+
+const P = styled.p`
+  color: ${(props) => props.color};
+  font-size: ${(props) => props.size};
+  font-weight: ${(props) => (props.bold ? "600" : "400")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
+  width: ${(props) => props.width};
+  ${(props) => (props.right ? `justify-content: flex-end;` : "")}
+  ${(props) => (props.is_flex ? `display: flex; align-items: center; ` : "")}
+`;
+
 
 export default Text;
