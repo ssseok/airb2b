@@ -39,7 +39,7 @@ const Signup = (props) => {
         <PaddingBox padding="16px">
           <Cwrap>
             <Xbtn>X</Xbtn>
-            <Text margin="10px auto" size="16px" bold>
+            <Text margin="10px auto" size="16px" bold="600">
               회원가입
             </Text>
           </Cwrap>
