@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import styled from "styled-components";
 
 import { PaddingBox, Text } from "../common";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 
 Modal.setAppElement("#root");
@@ -15,7 +15,6 @@ const SignupModal = (props) => {
     setIsopen(false);
     _isClose();
   };
-  const { history } = props;
   const dispatch = useDispatch();
 
   const [email, setEmail] = React.useState("");
@@ -72,7 +71,8 @@ const SignupModal = (props) => {
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}>
+          }}
+        >
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
@@ -99,13 +99,13 @@ const SignupModal = (props) => {
                     />
                     <MainInput
                       placeholder="비밀번호를 입력하세요."
-                      type="text"
+                      type="password"
                       value={passWord}
                       onChange={passWordCheck}
                     />
                     <MainInput
                       placeholder="비밀번호를 다시 입력하세요."
-                      type="text"
+                      type="password"
                       value={passWordConfirm}
                       onChange={passWordConfirmCheck}
                     />
@@ -145,18 +145,6 @@ const AllWrap = styled.div`
   height: auto;
 `;
 
-const Cwrap = styled.div`
-  text-align: center;
-  display: flex;
-  position: relative;
-`;
-
-const Line = styled.hr`
-  margin: 20px 0px;
-  border: none;
-  border-top: 1px solid #ebebeb;
-`;
-
 const MainInput = styled.input`
   width: 100%;
   height: 56px;
@@ -182,20 +170,6 @@ const MainBtn = styled.button`
   background: -webkit-linear-gradient(to right, #e84a5f, #ad305a);
   background: linear-gradient(to right, #e84a5f, #ad305a);
   cursor: pointer;
-`;
-
-const Xbtn = styled.button`
-  position: absolute;
-  top: 4px;
-  width: 35px;
-  height: 35px;
-  border-radiuse: 35px;
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff;
-  &:hover {
-    background-color: #eeeeee;
-  }
 `;
 
 export default SignupModal;

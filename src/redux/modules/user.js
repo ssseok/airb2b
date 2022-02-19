@@ -1,6 +1,5 @@
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
-import axios from "axios";
 import { apis } from "../../shared/api";
 
 const LOG_IN = "LOG_IN";
@@ -22,7 +21,9 @@ const logInDB = (userEmail, password) => {
     apis
       .login(userEmail, password)
       .then((res) => {
+        console.log(res);
         dispatch(logIn(userEmail, password));
+        localStorage.setItem("token", res.data.token);
         history.replace("/");
       })
       .catch((err) => {
