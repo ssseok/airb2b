@@ -10,15 +10,13 @@ const SignupModal = (props) => {
   const { _isOpen, _isClose } = props;
   const [isOpen, setIsopen] = React.useState(_isOpen);
 
+  const modalClose = useSelector((state) => state.modal.is_open);
   const isClose = () => {
     setIsopen(false);
     _isClose();
   };
   const { history } = props;
   const dispatch = useDispatch();
-
-  const error = useSelector((state) => state.user.user);
-  console.log(error);
 
   const [email, setEmail] = React.useState("");
   const [nickName, setNickName] = React.useState("");
@@ -113,6 +111,8 @@ const SignupModal = (props) => {
 
   const signUp = () => {
     dispatch(userActions.signUpDB(email, nickName, passWord, passWordConfirm));
+    setIsopen(false);
+    _isClose();
   };
 
   return (
@@ -144,8 +144,7 @@ const SignupModal = (props) => {
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}
-        >
+          }}>
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
@@ -170,8 +169,7 @@ const SignupModal = (props) => {
                         <br />
                         <Span
                           size="3px"
-                          className={`${isEmail ? "success" : "error"}`}
-                        >
+                          className={`${isEmail ? "success" : "error"}`}>
                           {emailMessage}
                         </Span>
                       </>
@@ -196,8 +194,7 @@ const SignupModal = (props) => {
                         <br />
                         <Span
                           size="3px"
-                          className={`${isPwd ? "success" : "error"}`}
-                        >
+                          className={`${isPwd ? "success" : "error"}`}>
                           {passWordMessage}
                         </Span>
                       </>
@@ -215,8 +212,7 @@ const SignupModal = (props) => {
                         <br />
                         <Span
                           size="3px"
-                          className={`${isPwdCheck ? "success" : "error"}`}
-                        >
+                          className={`${isPwdCheck ? "success" : "error"}`}>
                           {passWordConfirmMessage}
                         </Span>
                       </>

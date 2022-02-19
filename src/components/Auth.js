@@ -72,7 +72,6 @@ const Auth = (props) => {
               <li
                 onClick={() => {
                   localStorage.removeItem("token");
-                  setSignupModal(true);
                   authModalClose();
                 }}>
                 로그아웃

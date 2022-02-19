@@ -24,6 +24,8 @@ const LoginModal = (props) => {
 
   const login = () => {
     dispatch(userActions.logInDB(email, passWord));
+    setIsopen(false);
+    _isClose();
   };
 
   const { _isOpen, _isClose } = props;

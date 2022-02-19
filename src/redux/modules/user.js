@@ -26,6 +26,10 @@ const logInDB = (userEmail, password) => {
       .login(userEmail, password)
       .then((res) => {
         console.log(res);
+        if (!res.data.ok) {
+          window.alert(res.data.errorMessage);
+          return;
+        }
         dispatch(logIn(userEmail, password));
         localStorage.setItem("token", res.data.token);
         history.replace("/");
@@ -43,8 +47,10 @@ const signUpDB = (userEmail, userNickname, password, passwordConfirm) => {
       .signup(userEmail, userNickname, password, passwordConfirm)
       .then((res) => {
         // dispatch(setUser(userEmail, userNickname, password, passwordConfirm));
-        console.log(res.data);
-        if (res.data.errorMessage !== "") {
+        const modal = getState().modal.is_open;
+        console.log(modal);
+        console.log(res.data.ok);
+        if (!res.data.ok) {
           window.alert(res.data.errorMessage);
           return;
         }

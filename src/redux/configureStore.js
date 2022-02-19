@@ -3,16 +3,12 @@ import thunk from "redux-thunk";
 import { createBrowserHistory } from "history";
 
 import User from "./modules/user";
-// import post from "./modules/post";
-// import Comment from "./modules/comment";
-// import Image from "./modules/image";
+import Modal from "./modules/modal";
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
   user: User,
-  //   post: post,
-  //   comment: Comment,
-  // image: Image,,
+  modal: Modal,
 });
 
 const middlewares = [thunk.withExtraArgument({ history: history })];

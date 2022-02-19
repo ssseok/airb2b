@@ -8,14 +8,22 @@ import { ReactComponent as SearchSvg } from "../svg/search.svg";
 import { ReactComponent as GlobalSvg_w } from "../svg/global_white.svg";
 
 const Header = () => {
-  const current_scroll = document.documentElement.scrollTop;
+  const [scroll, setScroll] = React.useState(0);
+  const windowOffset = window.pageYOffset;
   React.useEffect(() => {
-    console.log(current_scroll);
-  }, [current_scroll]);
+    console.log(windowOffset);
+    if (windowOffset > 53) {
+      window.addEventListener("scroll", () => {
+        setScroll(window.pageYOffset);
+      });
+      return;
+    }
+  }, [setScroll, windowOffset]);
+
   return (
     <HeaderS>
-      <div className="main_header sticky">
-        <a className="logo">
+      <div className={`main_header ${scroll > 54 ? "sticky" : ""}`}>
+        <a href="#" className="logo">
           <LogoSvg />
         </a>
         <div className="search">
