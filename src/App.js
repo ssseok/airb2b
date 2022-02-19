@@ -5,19 +5,21 @@ import {
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Main2 from "./pages/Main2";
 import Signup from "./pages/Signup";
-import LoginPage from "./pages/LoginPage";
+import Auth from "./components/Auth";
+import Main from "./components/Main";
 
 export const history = createBrowserHistory();
 
 function App() {
   return (
     <HistoryRouter history={history}>
+      <header>
+        <Auth />
+      </header>
+      <Main></Main>
       <Routes>
-        <Route path="/" element={<Main2 />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Signup />} />
       </Routes>
     </HistoryRouter>
   );

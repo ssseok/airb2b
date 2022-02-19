@@ -2,6 +2,10 @@ import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
 
+import { PaddingBox, Text } from "../common";
+import { useDispatch } from "react-redux";
+import { actionCreators as userActions } from "../redux/modules/user";
+
 Modal.setAppElement("#root");
 const SignupModal = (props) => {
   const { _isOpen, _isClose } = props;
@@ -10,6 +14,32 @@ const SignupModal = (props) => {
   const isClose = () => {
     setIsopen(false);
     _isClose();
+  };
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = React.useState("");
+  const [nickName, setNickName] = React.useState("");
+  const [passWord, setPassWord] = React.useState("");
+  const [passWordConfirm, setPassWordConfrim] = React.useState("");
+
+  const emailCheck = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const nickNameCheck = (e) => {
+    setNickName(e.target.value);
+  };
+
+  const passWordCheck = (e) => {
+    setPassWord(e.target.value);
+  };
+
+  const passWordConfirmCheck = (e) => {
+    setPassWordConfrim(e.target.value);
+  };
+
+  const signUpCheck = () => {
+    dispatch(userActions.signUpDB(email, nickName, passWord, passWordConfirm));
   };
 
   return (
@@ -41,14 +71,49 @@ const SignupModal = (props) => {
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}>
+          }}
+        >
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
-              로그인 또는 회원가입
+              회원가입
             </header>
-            <h1>회원가입</h1>
-            <div> let's go</div>
+            <React.Fragment>
+              <AllWrap>
+                <AllWrap>
+                  <PaddingBox padding="16px">
+                    <Text bold size="22px">
+                      에어비앤비에 오신 것을 환영합니다.
+                    </Text>
+                    <MainInput
+                      placeholder="이메일을 입력하세요."
+                      type="text"
+                      value={email}
+                      onChange={emailCheck}
+                    />
+                    <MainInput
+                      placeholder="닉네임을 입력하세요."
+                      type="text"
+                      value={nickName}
+                      onChange={nickNameCheck}
+                    />
+                    <MainInput
+                      placeholder="비밀번호를 입력하세요."
+                      type="password"
+                      value={passWord}
+                      onChange={passWordCheck}
+                    />
+                    <MainInput
+                      placeholder="비밀번호를 다시 입력하세요."
+                      type="password"
+                      value={passWordConfirm}
+                      onChange={passWordConfirmCheck}
+                    />
+                    <MainBtn onClick={signUpCheck}>회원가입하기</MainBtn>
+                  </PaddingBox>
+                </AllWrap>
+              </AllWrap>
+            </React.Fragment>
           </ModalWrap>
         </Modal>
       )}
@@ -63,6 +128,7 @@ const ModalWrap = styled.div`
     line-height: 68px;
     border-bottom: solid 1px #eee;
     padding-left: 10px;
+
     button {
       position: absolute;
       top: 50%;
@@ -74,4 +140,36 @@ const ModalWrap = styled.div`
     }
   }
 `;
+
+const AllWrap = styled.div`
+  height: auto;
+`;
+
+const MainInput = styled.input`
+  width: 100%;
+  height: 56px;
+  border: 1px solid #cccccc;
+  border-radius: 13px;
+  padding: 0px 10px;
+  margin: 15px 0px;
+  &::placeholder {
+    font-size: 14px;
+  }
+`;
+
+const MainBtn = styled.button`
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 13px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  background: #ad305a;
+  background: -webkit-linear-gradient(to right, #e84a5f, #ad305a);
+  background: linear-gradient(to right, #e84a5f, #ad305a);
+  cursor: pointer;
+`;
+
 export default SignupModal;

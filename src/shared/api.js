@@ -22,6 +22,11 @@ instance.interceptors.request.use(function (config) {
 // 데이터 요청 to 서버
 export const apis = {
   // user
+  login: (userEmail, password) =>
+    instance.post("/api/login", {
+      userEmail: userEmail,
+      password: password,
+    }),
 
   signup: (userEmail, userNickname, password, passwordConfirm) =>
     instance.post("/api/join", {
