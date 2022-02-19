@@ -1,25 +1,29 @@
 import React from "react";
-import { Text } from "../common";
+import { Text, PaddingBox } from "../common";
 import styled from "styled-components";
 
 const LoginPage = (props) => {
   return (
     <LoginPageBlock>
       <Agrid>
-        <Cgrid>
-          <Xbtn>X</Xbtn>
-          <Text margin="10px auto" size="16px" bold="600">
-            로그인
-          </Text>
-        </Cgrid>
+        <PaddingBox padding="16px">
+          <Cgrid>
+            <Xbtn>X</Xbtn>
+            <Text margin="10px auto" size="16px" bold="600">
+              로그인
+            </Text>
+          </Cgrid>
+        </PaddingBox>
         <Line />
         <Agrid>
-          <Text bold="600" size="22px">
-            에어비엔비에 오신 것을 환영합니다.
-          </Text>
-          <Ainput type="text" placeholder="이메일을 입력하세요." />
-          <Ainput type="password" placeholder="비밀번호를 입력하세요." />
-          <Abutton>로그인</Abutton>
+          <PaddingBox padding="16px">
+            <Text bold="600" size="22px">
+              에어비엔비에 오신 것을 환영합니다.
+            </Text>
+            <Ainput type="text" placeholder="이메일을 입력하세요." />
+            <Ainput type="password" placeholder="비밀번호를 입력하세요." />
+            <Abutton>로그인</Abutton>
+          </PaddingBox>
         </Agrid>
       </Agrid>
     </LoginPageBlock>
@@ -43,7 +47,7 @@ const Agrid = styled.div`
 `;
 const Abutton = styled.button`
   width: 100%;
-  height: 50px;
+  height: 56px;
   border: none;
   border-radius: 13px;
   color: #ffffff;

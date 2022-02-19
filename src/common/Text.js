@@ -11,18 +11,18 @@ const Text = (props) => {
     _onClick,
     is_flex,
     width,
-    right,
+    center,
   } = props;
 
   const styles = {
     bold: bold,
     color: color,
     size: size,
-    margin,
+    margin: margin,
     _onClick: { _onClick },
-    is_flex,
-    width,
-    right,
+    is_flex: is_flex,
+    width: width,
+    center: center,
   };
   return (
     <P {...styles} onClick={_onClick}>
@@ -50,6 +50,5 @@ const P = styled.p`
   ${(props) => (props.right ? `justify-content: flex-end;` : "")}
   ${(props) => (props.is_flex ? `display: flex; align-items: center; ` : "")}
 `;
-
 
 export default Text;

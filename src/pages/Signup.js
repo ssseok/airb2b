@@ -1,5 +1,5 @@
 import React from "react";
-import { PaddingBox, Text } from "../common";
+import { PaddingBox, Text, Span } from "../common";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
@@ -8,28 +8,50 @@ const Signup = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
 
+  const error = useSelector((state) => state.user.user);
+  console.log(error);
+
   const [email, setEmail] = React.useState("");
   const [nickName, setNickName] = React.useState("");
   const [passWord, setPassWord] = React.useState("");
   const [passWordConfirm, setPassWordConfrim] = React.useState("");
 
-  const emailCheck = (e) => {
+  const emailCheck =
+    /^[0-9a-zA-Z]([-_.0-9a-zA-Z])*@[0-9a-zA-Z]([-_.0-9a-zA-z])*.([a-zA-Z])*/;
+  const passWordCheck = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/;
+
+  const isEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  const nickNameCheck = (e) => {
+  const isNickName = (e) => {
     setNickName(e.target.value);
   };
 
-  const passWordCheck = (e) => {
+  const isPassWord = (e) => {
     setPassWord(e.target.value);
   };
 
-  const passWordConfirmCheck = (e) => {
+  const isPassWordConfirm = (e) => {
     setPassWordConfrim(e.target.value);
   };
 
-  const signUpCheck = () => {
+  const signUp = () => {
+    if (!emailCheck.test(email)) {
+      window.alert("이메일 형식이 틀렸습니다!");
+      return;
+    } else if (!passWordCheck.test(passWord)) {
+      window.alert("비밀번호 형식이 틀렸습니다");
+      return;
+    } else if (passWord !== passWordConfirm) {
+      window.alert("비밀번호와 비밀번호 확인이 맞지 않습니다!");
+      return;
+    }
+    //  else if (false) {
+    //   window.alert("이미 사용중인 이메일입니다!");
+    //   return;
+    // }
+
     dispatch(userActions.signUpDB(email, nickName, passWord, passWordConfirm));
   };
 
@@ -50,31 +72,31 @@ const Signup = (props) => {
             <Text bold size="22px">
               에어비앤비에 오신 것을 환영합니다.
             </Text>
-            <MainInput
+            <CheckInput
               placeholder="이메일을 입력하세요."
               type="text"
               value={email}
-              onChange={emailCheck}
+              onChange={isEmail}
             />
-            <MainInput
+            <CheckInput
               placeholder="닉네임을 입력하세요."
               type="text"
               value={nickName}
-              onChange={nickNameCheck}
+              onChange={isNickName}
             />
             <MainInput
               placeholder="비밀번호를 입력하세요."
-              type="text"
+              type="password"
               value={passWord}
-              onChange={passWordCheck}
+              onChange={isPassWord}
             />
             <MainInput
               placeholder="비밀번호를 다시 입력하세요."
-              type="text"
+              type="password"
               value={passWordConfirm}
-              onChange={passWordConfirmCheck}
+              onChange={isPassWordConfirm}
             />
-            <MainBtn onClick={signUpCheck}>회원가입하기</MainBtn>
+            <MainBtn onClick={signUp}>회원가입하기</MainBtn>
           </PaddingBox>
         </AllWrap>
       </AllWrap>
@@ -98,6 +120,18 @@ const Line = styled.hr`
   border-top: 1px solid #ebebeb;
 `;
 
+const CheckInput = styled.input`
+  width: 100%;
+  height: 56px;
+  border: 1px solid #cccccc;
+  border-radius: 13px;
+  padding: 0px 10px;
+  margin: 15px 0px;
+  &::placeholder {
+    font-size: 14px;
+  }
+`;
+
 const MainInput = styled.input`
   width: 100%;
   height: 56px;
@@ -108,6 +142,21 @@ const MainInput = styled.input`
   &::placeholder {
     font-size: 14px;
   }
+`;
+
+const CheckBtn = styled.button`
+  width: 13%;
+  height: 56px;
+  border: none;
+  border-radius: 13px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0px 0px 17px;
+  background: #ad305a;
+  background: -webkit-linear-gradient(to right, #e84a5f, #ad305a);
+  background: linear-gradient(to right, #e84a5f, #ad305a);
+  cursor: pointer;
 `;
 
 const MainBtn = styled.button`

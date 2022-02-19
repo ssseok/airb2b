@@ -1,64 +1,77 @@
-import styled from "styled-components";
 import React from "react";
-
-const ButtonBlock = styled.button`
-  width: ${(props) => (props.width ? props.width : "")};
-  margin: ${(props) => (props.margin ? props.margin : "")};
-  padding: ${(props) => (props.padding ? props.padding : "0.6em")};
-  background: ${(props) => (props.bg ? props.bg : "")};
-  color: ${(props) => (props.color ? props.color : "")};
-  border: 0;
-  border-radius: ${(props) => (props.border_radius ? props.border_radius : "")};
-  font-size: ${(props) => (props.font_size ? props.font_size : "")};
-  font-weight: ${(props) => (props.font_weight ? props.font_weight : "")};
-  &:disabled {
-    background: #82c9fd;
-  }
-`;
+import styled from "styled-components";
 
 const Button = (props) => {
   const {
+    _onClick,
+    fontSize,
     width,
-    margin,
+    minHeight,
     padding,
-    border_radius,
-    bg,
+    border,
+    borderRadius,
     color,
-    font_size,
-    font_weight,
+    backGround,
     children,
-    disabled,
-    onClick,
+    display,
+    margin,
   } = props;
 
   const styles = {
+    fontSize: fontSize,
     width: width,
-    margin: margin,
+    minHeight: minHeight,
     padding: padding,
-    border_radius: border_radius,
-    bg: bg,
+    border: border,
+    borderRadius: borderRadius,
     color: color,
-    font_size: font_size,
-    font_weight: font_weight,
+    backGround: backGround,
+    display: display,
+    margin: margin,
   };
+
   return (
-    <ButtonBlock {...styles} onClick={onClick} disabled={disabled}>
-      {children}
-    </ButtonBlock>
+    <React.Fragment>
+      <DefaultBtn {...styles} onClick={_onClick}>
+        {children}
+      </DefaultBtn>
+    </React.Fragment>
   );
 };
 
 Button.defaultProps = {
-  width: "",
-  margin: false,
-  padding: false,
-  border_radius: false,
-  bg: false,
-  color: "white",
-  font_size: false,
-  font_weight: "400",
   children: null,
-  onClick: () => {},
+  fontSize: "16px",
+  width: "100%",
+  minHeight: "auto",
+  padding: "10px 10px",
+  border: "1px solid #ffffff",
+  borderRadius: "40px",
+  backGround: "#ffffff",
+  margin: false,
+  _onClick: () => {},
 };
+
+const DefaultBtn = styled.button`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  min-height: 48px;
+  padding: ${(props) => props.padding};
+  border: ${(props) => props.border};
+  border-radius: ${(props) => props.borderRadius};
+  color: ${(props) => props.color};
+  display: ${(props) => props.display};
+  background-color: ${(props) => props.backGround};
+  box-sizing: boder-box;
+  margin: ${(props) => (props.margin ? props.margin : "")};
+  /* text-align: center !important; */
+  line-height: 24px;
+  cursor: pointer;
+  font-weight: 800;
+  flex-grow: 1;
+  &:hover {
+    background-color: #ebebeb;
+  }
+`;
 
 export default Button;
