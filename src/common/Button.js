@@ -67,7 +67,7 @@ const DefaultBtn = styled.button`
   /* text-align: center !important; */
   line-height: 24px;
   cursor: pointer;
-  font-weight: 800;
+  font-weight: 400;
   flex-grow: 1;
   &:hover {
     background-color: #ebebeb;

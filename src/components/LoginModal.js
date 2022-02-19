@@ -47,24 +47,24 @@ const LoginModal = (props) => {
               left: 0,
               right: 0,
               bottom: 0,
+              backgroundColor: "transparent",
             },
             content: {
               position: "absolute",
               top: "50%",
               left: "50%",
+              bottom: "auto",
               width: "500px",
-              height: "80vh",
+              height: "auto",
               padding: "0",
               border: "solid 1px #eee",
               overflow: "auto",
-              background: "#fff",
               borderRadius: "20px",
               transform: "translate(-50%,-50%)",
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}
-        >
+          }}>
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>

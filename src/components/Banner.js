@@ -17,8 +17,7 @@ const Banner = (props) => {
                 padding=""
                 width="30%"
                 color="222222"
-                borderRadiuss="40px"
-              >
+                borderRadiuss="40px">
                 유연한 검색
               </Button>
             </div>
@@ -32,24 +31,28 @@ const Banner = (props) => {
 export default Banner;
 
 const BannerWrap = styled.div`
-background- color: black;
+  background-color: #000;
 `;
 
 const BackWrap = styled.div`
-  height: 100vh;
-  wight: 100vw;
+  height: 105vh;
+  padding: 80px 0;
   margin: 0 5vw;
 `;
 
 const ImageWrap = styled.div`
   display: flex;
+  border-radius: 30px;
   background-image: url("https://a0.muscache.com/im/pictures/f1502649-e034-40ab-9fed-7992b7d550c6.jpg?im_w=2560");
-  height: 850px;
-  width: 80vw;
+  height: 100%;
+  width: 100%;
   background-size: cover;
   background-position: center;
   align-items: flex-end;
   justify-content: center;
-  .bigimage {
+
+  p {
+    line-height: 54px;
+    text-align: center;
   }
 `;
