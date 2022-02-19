@@ -3,7 +3,7 @@ import styled from "styled-components";
 const MainBottom = () => {
   return (
     <ImageWrap>
-      <div>
+      <div className="image">
         <img
           src="https://a0.muscache.com/im/pictures/0903a029-e330-41f6-add2-652954f62185.jpg?im_w=1440"
           alt="이미지"
@@ -26,14 +26,16 @@ const ImageWrap = styled.div`
   height: 0;
   overflow: hidden;
   letter-spacing: -2.98px;
+  z-index: -1;
 
   div {
     position: absolute;
   }
+
   img {
     top: 50%;
     left: 50%;
-    z-index: 1;
+    border-radius: 15px;
   }
 
   .text {

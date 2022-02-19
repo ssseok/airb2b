@@ -105,9 +105,8 @@ const FooterWrap = styled.div`
   background-color: #f7f7f7;
 
   > div {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 40px;
+    margin: 0 5vw;
+    padding: 40px 0;
     font-size: 14px;
     color: #222;
   }

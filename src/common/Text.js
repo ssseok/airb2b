@@ -12,6 +12,7 @@ const Text = (props) => {
     is_flex,
     width,
     center,
+    padding,
   } = props;
 
   const styles = {
@@ -23,7 +24,9 @@ const Text = (props) => {
     is_flex: is_flex,
     width: width,
     center: center,
+    padding: padding,
   };
+
   return (
     <P {...styles} onClick={_onClick}>
       {children}
@@ -45,6 +48,7 @@ const P = styled.p`
   color: ${(props) => props.color};
   font-size: ${(props) => props.size};
   font-weight: ${(props) => (props.bold ? "600" : "400")};
+  padding: ${(props) => props.padding};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
   width: ${(props) => props.width};
   ${(props) => (props.right ? `justify-content: flex-end;` : "")}

@@ -47,20 +47,21 @@ const Auth = (props) => {
               left: 0,
               right: 0,
               bottom: 0,
+              backgroundColor: "transparent",
             },
             content: {
               position: "absolute",
               top: "40px",
               right: "40px",
-              background: "#fff",
               overflow: "auto",
               width: "250px",
-              height: "240px",
+              height: "300px",
               WebkitOverflowScrolling: "touch",
               outline: "none",
               borderRadius: "20px",
               padding: "0",
               border: "solid 1px #eee",
+              zIndex: 10,
             },
           }}>
           {token ? (

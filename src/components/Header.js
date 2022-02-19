@@ -42,7 +42,6 @@ const HeaderS = styled.header`
   background-color: #000;
   font-size: 14px;
   color: #fff;
-  z-index: 10;
 
   .main_header {
     display: flex;
