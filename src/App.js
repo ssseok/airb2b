@@ -5,9 +5,9 @@ import {
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Signup from "./pages/Signup";
 import Auth from "./components/Auth";
 import Main from "./components/Main";
+import Signup from "./pages/Signup";
 
 export const history = createBrowserHistory();
 

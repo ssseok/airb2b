@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
 
-import { PaddingBox, Text } from "../common";
+import { PaddingBox, Text, Span } from "../common";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 
@@ -22,23 +22,81 @@ const SignupModal = (props) => {
   const [passWord, setPassWord] = React.useState("");
   const [passWordConfirm, setPassWordConfrim] = React.useState("");
 
-  const emailCheck = (e) => {
+  // 에러 메세지 상태 저장
+  const [emailMessage, setEmailMessage] = React.useState("");
+  const [nickNameMessage, setNickNameMessage] = React.useState("");
+  const [passWordMessage, setPassWordMessage] = React.useState("");
+  const [passWordConfirmMessage, setPassWordConfrimMessage] =
+    React.useState("");
+
+  // 중복 체크
+  const [overlap, setOverlap] = React.useState(false);
+  const [emailCurrent, setEmailCurrent] = React.useState("");
+  const [passWordCurrent, setPassWordCurrent] = React.useState("");
+
+  // 유효성 검사
+  const [isEmail, setIsEmail] = React.useState("");
+  const [isPwd, setIsPwd] = React.useState("");
+  const [isPwdCheck, setIsPwdCheck] = React.useState("");
+
+  const is_Email = (e) => {
     setEmail(e.target.value);
+    const regId =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    const emailCurrent = e.target.value;
+    setEmailCurrent(emailCurrent);
+
+    if (!regId.test(emailCurrent)) {
+      setEmailMessage("이메일 형식에 맞게 만들어주세요!");
+      setIsEmail(false);
+    } else {
+      setEmailMessage("올바른 이메일 형식입니다!");
+      setIsEmail(true);
+    }
   };
 
-  const nickNameCheck = (e) => {
+  const is_NickName = (e) => {
     setNickName(e.target.value);
   };
 
-  const passWordCheck = (e) => {
+  const is_PassWord = (e) => {
     setPassWord(e.target.value);
+    const regPwd = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/;
+    const passWordCurrent = e.target.value;
+
+    setPassWordCurrent(passWordCurrent);
+
+    if (!regPwd.test(passWordCurrent)) {
+      setPassWordMessage("영문, 숫자를 조합하여 8~16자로 만들어주세요!");
+      setIsPwd(false);
+    } else {
+      setPassWordMessage("올바른 비밀번호 형식입니다!");
+      setIsPwd(true);
+    }
   };
 
-  const passWordConfirmCheck = (e) => {
+  const is_PassWordConfirm = (e) => {
     setPassWordConfrim(e.target.value);
+    const regPwd = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/;
+    const SamePwdCurrent = e.target.value;
+
+    if (!regPwd.test(SamePwdCurrent)) {
+      setPassWordConfrimMessage("형식에 맞지 않는 비밀번호입니다!");
+      setIsPwdCheck(false);
+    } else if (
+      passWord !== "" &&
+      passWordConfirm !== "" &&
+      passWord === SamePwdCurrent
+    ) {
+      setPassWordConfrimMessage("비밀번호가 같습니다!");
+      setIsPwdCheck(true);
+    } else {
+      setPassWordConfrimMessage("비밀번호가 틀립니다.. 다시 확인 해주세요!");
+      setIsPwdCheck(false);
+    }
   };
 
-  const signUpCheck = () => {
+  const signUp = () => {
     dispatch(userActions.signUpDB(email, nickName, passWord, passWordConfirm));
   };
 
@@ -89,27 +147,63 @@ const SignupModal = (props) => {
                       placeholder="이메일을 입력하세요."
                       type="text"
                       value={email}
-                      onChange={emailCheck}
+                      onChange={is_Email}
                     />
+                    {email.length > 0 && (
+                      <>
+                        <br />
+                        <Span
+                          size="3px"
+                          className={`${isEmail ? "success" : "error"}`}
+                        >
+                          {emailMessage}
+                        </Span>
+                      </>
+                    )}
+                    <br />
                     <MainInput
                       placeholder="닉네임을 입력하세요."
                       type="text"
                       value={nickName}
-                      onChange={nickNameCheck}
+                      onChange={is_NickName}
                     />
                     <MainInput
                       placeholder="비밀번호를 입력하세요."
                       type="password"
                       value={passWord}
-                      onChange={passWordCheck}
+                      onChange={is_PassWord}
                     />
+                    {passWord.length > 0 && (
+                      <>
+                        <br />
+                        <Span
+                          size="3px"
+                          className={`${isPwd ? "success" : "error"}`}
+                        >
+                          {passWordMessage}
+                        </Span>
+                      </>
+                    )}
+                    <br />
                     <MainInput
                       placeholder="비밀번호를 다시 입력하세요."
                       type="password"
                       value={passWordConfirm}
-                      onChange={passWordConfirmCheck}
+                      onChange={is_PassWordConfirm}
                     />
-                    <MainBtn onClick={signUpCheck}>회원가입하기</MainBtn>
+                    {passWordConfirm.length > 0 && (
+                      <>
+                        <br />
+                        <Span
+                          size="3px"
+                          className={`${isPwdCheck ? "success" : "error"}`}
+                        >
+                          {passWordConfirmMessage}
+                        </Span>
+                      </>
+                    )}
+                    <br />
+                    <MainBtn onClick={signUp}>회원가입하기</MainBtn>
                   </PaddingBox>
                 </AllWrap>
               </AllWrap>
