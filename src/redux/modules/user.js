@@ -1,14 +1,16 @@
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 import { apis } from "../../shared/api";
+import axios from "axios";
 import { history } from "../../App";
 
 const LOG_IN = "LOG_IN";
 const SET_USER = "SET_USER";
+const LOG_OUT = "LOG_OUT";
 
 const setUser = createAction(SET_USER, (user) => ({ user }));
 const logIn = createAction(LOG_IN, (user) => ({ user }));
-
+const logOut = createAction(LOG_OUT, (user) => ({ user }));
 
 const initialState = {
   userEmail: null,
@@ -57,6 +59,14 @@ const signUpDB = (userEmail, userNickname, password, passwordConfirm) => {
   };
 };
 
+const logOutDB = () => {
+  return function (dispatch, getState, { history }) {
+    localStorage.removeItem("token");
+    dispatch(logOut());
+    history.replace("/");
+  };
+};
+
 export default handleActions(
   {
     [SET_USER]: (state, action) =>
@@ -72,16 +82,22 @@ export default handleActions(
         draft.user = action.payload.user;
         draft.is_login = true;
       }),
-    [SET_USER]: (state, action) => produce(state, (draft) => {}),
+    [LOG_OUT]: (state, action) =>
+      produce(state, (draft) => {
+        localStorage.removeItem("token");
+        draft.is_login = false;
+      }),
   },
   initialState
 );
 
 const actionCreators = {
   logIn,
+  logOut,
   setUser,
   signUpDB,
   logInDB,
+  logOutDB,
 };
 
 export { actionCreators };

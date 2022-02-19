@@ -5,9 +5,9 @@ import {
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import Main from "./components/Main";
 import HeaderAside from "./components/HeaderAside";
 import Header from "./components/Header";
-import Main from "./components/Main";
 import Footer from "./components/Footer";
 
 export const history = createBrowserHistory();
