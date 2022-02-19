@@ -24,7 +24,6 @@ const SignupModal = (props) => {
 
   // 에러 메세지 상태 저장
   const [emailMessage, setEmailMessage] = React.useState("");
-  const [nickNameMessage, setNickNameMessage] = React.useState("");
   const [passWordMessage, setPassWordMessage] = React.useState("");
   const [passWordConfirmMessage, setPassWordConfrimMessage] =
     React.useState("");
@@ -38,6 +37,19 @@ const SignupModal = (props) => {
   const [isEmail, setIsEmail] = React.useState("");
   const [isPwd, setIsPwd] = React.useState("");
   const [isPwdCheck, setIsPwdCheck] = React.useState("");
+
+  // 비활성화 여부
+  const [active, setActive] = React.useState(true);
+
+  const checkActive = () => {
+    email !== "" &&
+    nickName !== "" &&
+    passWord !== "" &&
+    passWordConfirm !== "" &&
+    passWord === passWordConfirm
+      ? setActive(false)
+      : setActive(true);
+  };
 
   const is_Email = (e) => {
     setEmail(e.target.value);
@@ -148,6 +160,7 @@ const SignupModal = (props) => {
                       type="text"
                       value={email}
                       onChange={is_Email}
+                      onKeyUp={checkActive}
                     />
                     {email.length > 0 && (
                       <>
@@ -166,12 +179,14 @@ const SignupModal = (props) => {
                       type="text"
                       value={nickName}
                       onChange={is_NickName}
+                      onKeyUp={checkActive}
                     />
                     <MainInput
                       placeholder="비밀번호를 입력하세요."
                       type="password"
                       value={passWord}
                       onChange={is_PassWord}
+                      onKeyUp={checkActive}
                     />
                     {passWord.length > 0 && (
                       <>
@@ -190,6 +205,7 @@ const SignupModal = (props) => {
                       type="password"
                       value={passWordConfirm}
                       onChange={is_PassWordConfirm}
+                      onKeyUp={checkActive}
                     />
                     {passWordConfirm.length > 0 && (
                       <>
@@ -203,7 +219,9 @@ const SignupModal = (props) => {
                       </>
                     )}
                     <br />
-                    <MainBtn onClick={signUp}>회원가입하기</MainBtn>
+                    <MainBtn onClick={signUp} disabled={active}>
+                      회원가입하기
+                    </MainBtn>
                   </PaddingBox>
                 </AllWrap>
               </AllWrap>
