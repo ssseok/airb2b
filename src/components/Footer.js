@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 const Footer = () => {
   return (
-    <footer>
-      <FooterWrap>
+    <FooterWrap>
+      <div>
         <section>
           <div>
             <h3>에어비앤비 지원</h3>
@@ -97,17 +97,20 @@ const Footer = () => {
         <div className="img_wrap">
           <img src="./img/footer.png" />
         </div>
-      </FooterWrap>
-    </footer>
+      </div>
+    </FooterWrap>
   );
 };
 const FooterWrap = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 40px;
   background-color: #f7f7f7;
-  font-size: 14px;
-  color: #222;
+
+  > div {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 40px;
+    font-size: 14px;
+    color: #222;
+  }
 
   section {
     border-bottom: 1px solid rgb(221, 221, 221);
@@ -124,6 +127,7 @@ const FooterWrap = styled.div`
     flex-wrap: wrap;
     margin: 0 -12px;
   }
+
   li {
     padding: 0 12px;
     margin-top: 12px;

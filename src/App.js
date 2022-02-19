@@ -6,17 +6,17 @@ import {
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Signup from "./pages/Signup";
-import Auth from "./components/Auth";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HeaderAside from "./components/HeaderAside";
 
 export const history = createBrowserHistory();
 
 function App() {
   return (
     <HistoryRouter history={history}>
-      <header>
-        <Auth />
-      </header>
+      <HeaderAside />
+      <Header />
       <Routes>
         <Route path="/" element={<Signup />} />
       </Routes>

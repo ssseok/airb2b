@@ -31,12 +31,9 @@ const Auth = (props) => {
         onClick={() => {
           setAuthModal(true);
         }}>
-        <span className="menu">
-          <HamSvg />
-        </span>
-        <span className="user">
-          <UserSvg />
-        </span>
+        <HamSvg className="menu" />
+
+        <UserSvg className="user" />
       </AuthModalS>
 
       {authModal && (
@@ -105,6 +102,7 @@ const AuthModalS = styled.button`
   padding: 5px 5px 5px 12px;
   border-radius: 50px;
   border: solid 1px #dddddd;
+  background-color: #fff;
 
   span {
     display: block;
@@ -112,11 +110,13 @@ const AuthModalS = styled.button`
   .menu {
     width: 16px;
     height: 16px;
+    color: #717171;
   }
 
   .user {
     width: 30px;
     height: 30px;
+    color: #717171;
   }
 
   svg {
