@@ -63,5 +63,5 @@
   "devDependencies": {
     "json-server": "^0.17.0"
   },
-  "proxy": "http://3.37.36.192"
+  "proxy": "http://3.34.130.88"
 }

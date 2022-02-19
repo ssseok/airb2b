@@ -2,7 +2,7 @@ import axios from "axios";
 
 // 사용자 정의 인스턴스 기본 설정 참고 (https://yamoo9.github.io/axios/guide/config-defaults.html#%EA%B8%80%EB%A1%9C%EB%B2%8C-axios-%EA%B8%B0%EB%B3%B8-defaults-%EC%84%A4%EC%A0%95)
 const instance = axios.create({
-  baseURL: "",
+  baseURL: "http://3.34.130.88",
   headers: {
     "content-type": "application/json;charset=UTF-8", // 자바스크립트는 json형태로 받아와야 한다.
     accept: "application/json",
