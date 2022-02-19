@@ -14,6 +14,7 @@ const Aside = styled.aside`
   display: block;
   width: 100%;
   padding: 16px 0;
+  font-size: 14px;
   text-decoration: underline solid 1px;
   text-align: center;
   color: #fff;

@@ -135,7 +135,7 @@ const FooterWrap = styled.div`
     flex-basis: 33.3333%;
     cursor: pointer;
   }
-  > .img_wrap {
+  .img_wrap {
     width: 400px;
     margin: 0 auto;
   }

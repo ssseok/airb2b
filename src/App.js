@@ -9,6 +9,8 @@ import Signup from "./pages/Signup";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HeaderAside from "./components/HeaderAside";
+import MainBottom from "./components/MainBottom";
+import Experience from "./components/Experience";
 
 export const history = createBrowserHistory();
 
@@ -20,6 +22,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Signup />} />
       </Routes>
+      <Experience />
+      <MainBottom />
       <Footer />
     </HistoryRouter>
   );

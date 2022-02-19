@@ -11,7 +11,7 @@ const Auth = (props) => {
   const [authModal, setAuthModal] = React.useState(false);
   const [loginModal, setLoginModal] = React.useState(false);
   const [signupModal, setSignupModal] = React.useState(false);
-
+  const token = localStorage.getItem("token");
   const authModalClose = () => {
     setAuthModal(false);
   };
@@ -63,23 +63,35 @@ const Auth = (props) => {
               border: "solid 1px #eee",
             },
           }}>
-          <AuthList className="line">
-            <li
-              onClick={() => {
-                setSignupModal(true);
-                authModalClose();
-              }}>
-              회원가입
-            </li>
-            <li
-              onClick={() => {
-                setLoginModal(true);
-                authModalClose();
-              }}>
-              로그인
-            </li>
-          </AuthList>
-
+          {token ? (
+            <AuthList className="line">
+              <li
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  setSignupModal(true);
+                  authModalClose();
+                }}>
+                로그아웃
+              </li>
+            </AuthList>
+          ) : (
+            <AuthList className="line">
+              <li
+                onClick={() => {
+                  setSignupModal(true);
+                  authModalClose();
+                }}>
+                회원가입
+              </li>
+              <li
+                onClick={() => {
+                  setLoginModal(true);
+                  authModalClose();
+                }}>
+                로그인
+              </li>
+            </AuthList>
+          )}
           <AuthList>
             <li>숙소호스트되기</li>
             <li>체험 호스팅하기</li>
