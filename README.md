@@ -79,7 +79,7 @@ https://www.notion.so/4878cf7d1654460496d760f6c0987f4e?v=5400aefc1bc746b189549e1
 
 <code>박현석</code>
 
-<code>김두루</code>
+<code>김두루님</code>
 
 <code>정재연</code>
 
