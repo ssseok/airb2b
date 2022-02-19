@@ -39,11 +39,11 @@ svg {
   display: block;
   max-width: 100%;
 }
-button {
+/* button {
   background: none;
   border: 0;
   cursor: pointer;
-}
+} */
 a {
   text-decoration: none;
 }
