@@ -1,12 +1,15 @@
 import React from "react";
 import { Text, Image, Button } from "../common";
 import styled from "styled-components";
+import Banner from "./Banner";
+import MainBottom from "./MainBottom";
 
 const Main = (props) => {
   return (
     <React.Fragment>
+      <Banner />
       <Center>
-        <Text size="25px" bold="600" margin="0 0 24px 0">
+        <Text size="42px" bold="600" margin="0 0 48px 0">
           설레는 다음 여행을 위한 아이디어
         </Text>
         <Wrap>
@@ -81,55 +84,56 @@ const Main = (props) => {
         </Wrap>
 
         <SecWrap>
-          <Text size="25px" bold="600" margin="0 0 24px 0">
+          <Text size="42px" bold="600" margin="0 0 48px 0">
             에어비앤비 체험 둘러보기
           </Text>
 
           <Exp>
             <TwoCard>
               <TwoImg background="https://a0.muscache.com/im/pictures/3290306e-8e26-4c77-a96a-777e554c5222.jpg?im_w=720">
-                <Text margin="0" size="34px" bold="600" color="#fff">
+                <Text
+                  margin="0"
+                  size="34px"
+                  bold="600"
+                  padding="0 0 24px 0"
+                  color="#fff">
                   여행 중 만나는 <br />
                   이색적인 즐길 거리
                 </Text>
-                <Button fontSize="30px" color="black" border_radius="8px">
+                <Button
+                  fontSize="30px"
+                  color="black"
+                  width="auto"
+                  padding="14px 20px"
+                  borderRadius="8px">
                   체험
                 </Button>
               </TwoImg>
             </TwoCard>
             <TwoCard>
               <TwoImg background="https://a0.muscache.com/im/pictures/2e9e0381-68d8-4961-abf2-a4f897b41fa8.jpg?im_w=960">
-                <Text margin="0" size="34px" bold="600" color="#fff">
+                <Text
+                  margin="0"
+                  size="34px"
+                  bold="600"
+                  padding="0 0 24px 0"
+                  color="#fff">
                   집에서 만나는 <br />
                   다양한 즐길 거리
                 </Text>
-                <Button fontSize="24px" color="black" border_radius="8px">
+                <Button
+                  fontSize="30px"
+                  color="black"
+                  width="auto"
+                  padding="14px 20px"
+                  borderRadius="8px">
                   온라인 체험
                 </Button>
               </TwoImg>
             </TwoCard>
           </Exp>
-
-          <TwoCard>
-            <LastImg background="https://a0.muscache.com/im/pictures/0903a029-e330-41f6-add2-652954f62185.jpg?im_w=1440">
-              <Text size="49px" bold="600" color="#fff">
-                호스팅에 관해 <br />
-                궁금하신 점이
-                <br />
-                있나요?
-              </Text>
-              <Button
-                width="300px"
-                padding="14px 24px"
-                fontSize="24px"
-                color="black"
-                border_radius="8px"
-              >
-                슈퍼호스트에게 물어보세요{" "}
-              </Button>
-            </LastImg>
-          </TwoCard>
         </SecWrap>
+        <MainBottom />
       </Center>
     </React.Fragment>
   );
@@ -137,6 +141,8 @@ const Main = (props) => {
 
 const Center = styled.div`
   margin: 0px 5vw;
+  padding-top: 96px;
+  padding-bottom: 48px;
 `;
 
 const Wrap = styled.div`
@@ -162,13 +168,16 @@ const Localname = styled.div`
 
 const SecWrap = styled.div`
   width: 90vw;
+  padding: 96px 0;
 `;
 
 const TwoCard = styled.div``;
 
 const Exp = styled.div`
-  display: flex;
+  display: grid;
   width: 90vw;
+  grid-template-columns: 1fr 50%;
+  gap: 24px;
   flex-direction: row;
   justify-content: center;
   justify-content: space-between;
@@ -176,7 +185,6 @@ const Exp = styled.div`
 
 const TwoImg = styled.div`
   border-radius: 15px;
-  width: 33vw;
   height: 717px;
   padding: 80px;
   background: ${(props) => `url(${props.background})`};
@@ -192,6 +200,40 @@ const LastImg = styled.div`
   background: ${(props) => `url(${props.background})`};
   background-size: cover;
   background-position: center;
+`;
+const ImageWrap = styled.div`
+  position: relative;
+  padding-bottom: calc(556 / 1113 * 100%);
+  height: 0;
+  overflow: hidden;
+  letter-spacing: -2.98px;
+
+  div {
+    position: absolute;
+  }
+  img {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    padding: 40px;
+    line-height: 54px;
+  }
+  h2 {
+    flex: auto;
+    color: #fff;
+    font-size: 49px;
+  }
+  button {
+    border-radius: 8px;
+    background-color: #fff;
+  }
 `;
 
 export default Main;

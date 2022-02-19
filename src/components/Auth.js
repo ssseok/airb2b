@@ -11,7 +11,7 @@ const Auth = (props) => {
   const [authModal, setAuthModal] = React.useState(false);
   const [loginModal, setLoginModal] = React.useState(false);
   const [signupModal, setSignupModal] = React.useState(false);
-
+  const token = localStorage.getItem("token");
   const authModalClose = () => {
     setAuthModal(false);
   };
@@ -31,12 +31,9 @@ const Auth = (props) => {
         onClick={() => {
           setAuthModal(true);
         }}>
-        <span className="menu">
-          <HamSvg />
-        </span>
-        <span className="user">
-          <UserSvg />
-        </span>
+        <HamSvg className="menu" />
+
+        <UserSvg className="user" />
       </AuthModalS>
 
       {authModal && (
@@ -50,39 +47,52 @@ const Auth = (props) => {
               left: 0,
               right: 0,
               bottom: 0,
+              backgroundColor: "transparent",
             },
             content: {
               position: "absolute",
               top: "40px",
               right: "40px",
-              background: "#fff",
               overflow: "auto",
               width: "250px",
-              height: "240px",
+              height: "300px",
               WebkitOverflowScrolling: "touch",
               outline: "none",
               borderRadius: "20px",
               padding: "0",
               border: "solid 1px #eee",
+              zIndex: 10,
             },
           }}>
-          <AuthList className="line">
-            <li
-              onClick={() => {
-                setSignupModal(true);
-                authModalClose();
-              }}>
-              회원가입
-            </li>
-            <li
-              onClick={() => {
-                setLoginModal(true);
-                authModalClose();
-              }}>
-              로그인
-            </li>
-          </AuthList>
-
+          {token ? (
+            <AuthList className="line">
+              <li
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  setSignupModal(true);
+                  authModalClose();
+                }}>
+                로그아웃
+              </li>
+            </AuthList>
+          ) : (
+            <AuthList className="line">
+              <li
+                onClick={() => {
+                  setSignupModal(true);
+                  authModalClose();
+                }}>
+                회원가입
+              </li>
+              <li
+                onClick={() => {
+                  setLoginModal(true);
+                  authModalClose();
+                }}>
+                로그인
+              </li>
+            </AuthList>
+          )}
           <AuthList>
             <li>숙소호스트되기</li>
             <li>체험 호스팅하기</li>
@@ -105,6 +115,7 @@ const AuthModalS = styled.button`
   padding: 5px 5px 5px 12px;
   border-radius: 50px;
   border: solid 1px #dddddd;
+  background-color: #fff;
 
   span {
     display: block;
@@ -112,11 +123,13 @@ const AuthModalS = styled.button`
   .menu {
     width: 16px;
     height: 16px;
+    color: #717171;
   }
 
   .user {
     width: 30px;
     height: 30px;
+    color: #717171;
   }
 
   svg {
