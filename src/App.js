@@ -6,11 +6,9 @@ import {
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Signup from "./pages/Signup";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import HeaderAside from "./components/HeaderAside";
-import MainBottom from "./components/MainBottom";
-import Experience from "./components/Experience";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 export const history = createBrowserHistory();
 
@@ -19,12 +17,13 @@ function App() {
     <HistoryRouter history={history}>
       <HeaderAside />
       <Header />
+      <Main />
       <Routes>
         <Route path="/" element={<Signup />} />
       </Routes>
-      <Experience />
+      {/* <Experience />
       <MainBottom />
-      <Footer />
+      <Footer /> */}
     </HistoryRouter>
   );
 }
