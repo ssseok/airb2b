@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import LoginPage from "./pages/LoginPage";
 import Auth from "./components/Auth";
 
+
 export const history = createBrowserHistory();
 
 function App() {

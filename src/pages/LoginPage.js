@@ -1,8 +1,26 @@
 import React from "react";
 import { Text } from "../common";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { actionCreators as userActions } from "../redux/modules/user";
 
 const LoginPage = (props) => {
+  const dispatch = useDispatch;
+
+  const [email, setEmail] = React.useState("");
+  const [passWord, setPassWord] = React.useState("");
+
+  const changeId = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const changePw = (e) => {
+    setPassWord(e.target.value);
+  };
+
+  const login = () => {
+    dispatch(userActions.loginDB(email, passWord));
+  };
   return (
     <LoginPageBlock>
       <Agrid>
@@ -17,9 +35,19 @@ const LoginPage = (props) => {
           <Text bold="600" size="22px">
             에어비엔비에 오신 것을 환영합니다.
           </Text>
-          <Ainput type="text" placeholder="이메일을 입력하세요." />
-          <Ainput type="password" placeholder="비밀번호를 입력하세요." />
-          <Abutton>로그인</Abutton>
+          <Ainput
+            type="text"
+            placeholder="이메일을 입력하세요."
+            value={email}
+            onChange={changeId}
+          />
+          <Ainput
+            type="password"
+            placeholder="비밀번호를 입력하세요."
+            value={passWord}
+            onChange={changePw}
+          />
+          <Abutton onClick={login}>로그인</Abutton>
         </Agrid>
       </Agrid>
     </LoginPageBlock>
