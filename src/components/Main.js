@@ -109,28 +109,24 @@ const Main = (props) => {
               </TwoImg>
             </TwoCard>
           </Exp>
-
-          <TwoCard>
-            <LastImg background="https://a0.muscache.com/im/pictures/0903a029-e330-41f6-add2-652954f62185.jpg?im_w=1440">
-              <Text size="49px" bold="600" color="#fff">
-                호스팅에 관해 <br />
-                궁금하신 점이
-                <br />
-                있나요?
-              </Text>
-              <Button
-                width="300px"
-                padding="14px 24px"
-                fontSize="24px"
-                color="black"
-                border_radius="8px"
-              >
-                슈퍼호스트에게 물어보세요{" "}
-              </Button>
-            </LastImg>
-          </TwoCard>
         </SecWrap>
       </Center>
+      <FullImg>
+        <div>
+          <img
+            src="https://a0.muscache.com/im/pictures/0903a029-e330-41f6-add2-652954f62185.jpg?im_w=1440"
+            alt="이미지"
+          />
+        </div>
+        <div className="text">
+          <h2>
+            호스팅에 관해 <br />
+            궁금하신 점이 <br />
+            있나요?
+          </h2>
+          <button>슈퍼호스트에게 물어보세요</button>
+        </div>
+      </FullImg>
     </React.Fragment>
   );
 };
@@ -192,6 +188,74 @@ const LastImg = styled.div`
   background: ${(props) => `url(${props.background})`};
   background-size: cover;
   background-position: center;
+`;
+const ImageWrap = styled.div`
+  position: relative;
+  padding-bottom: calc(556 / 1113 * 100%);
+  height: 0;
+  overflow: hidden;
+  letter-spacing: -2.98px;
+
+  div {
+    position: absolute;
+  }
+  img {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    padding: 40px;
+    line-height: 54px;
+  }
+  h2 {
+    flex: auto;
+    color: #fff;
+    font-size: 49px;
+  }
+  button {
+    border-radius: 8px;
+    background-color: #fff;
+  }
+`;
+const FullImg = styled.div`
+  position: relative;
+  padding-bottom: calc(556 / 1113 * 100%);
+  height: 0;
+  overflow: hidden;
+  letter-spacing: -2.98px;
+
+  div {
+    position: absolute;
+  }
+  img {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    padding: 40px;
+    line-height: 54px;
+  }
+  h2 {
+    flex: auto;
+    color: #fff;
+    font-size: 49px;
+  }
+  button {
+    border-radius: 8px;
+    background-color: #fff;
+  }
 `;
 
 export default Main;
