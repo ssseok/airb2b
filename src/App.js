@@ -7,7 +7,7 @@ import {
 import { createBrowserHistory } from "history";
 import Signup from "./pages/Signup";
 import Auth from "./components/Auth";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 export const history = createBrowserHistory();
 
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Signup />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </HistoryRouter>
   );
 }
