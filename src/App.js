@@ -7,6 +7,7 @@ import {
 import { createBrowserHistory } from "history";
 import Signup from "./pages/Signup";
 import Auth from "./components/Auth";
+import Main from "./components/Main";
 
 export const history = createBrowserHistory();
 
@@ -16,6 +17,7 @@ function App() {
       <header>
         <Auth />
       </header>
+      <Main></Main>
       <Routes>
         <Route path="/" element={<Signup />} />
       </Routes>
