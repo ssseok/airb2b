@@ -48,8 +48,7 @@ const HeaderS = styled.header`
     align-items: center;
     max-width: 1440px;
     height: 80px;
-    padding: 0 40px;
-    margin: 0 auto;
+    margin: 0 5vw;
   }
 
   .logo {
