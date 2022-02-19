@@ -2,6 +2,8 @@ import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
 
+import { PaddingBox, Text } from "../common";
+
 Modal.setAppElement("#root");
 const LoginModal = (props) => {
   const { _isOpen, _isClose } = props;
@@ -45,10 +47,25 @@ const LoginModal = (props) => {
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
-              로그인 또는 회원가입
+              로그인
             </header>
-            <h1> 로그인</h1>
-            <div> let's go</div>
+            <LoginPageBlock>
+              <Agrid>
+                <Agrid>
+                  <PaddingBox padding="16px">
+                    <Text bold="600" size="22px">
+                      에어비엔비에 오신 것을 환영합니다.
+                    </Text>
+                    <Ainput type="text" placeholder="이메일을 입력하세요." />
+                    <Ainput
+                      type="password"
+                      placeholder="비밀번호를 입력하세요."
+                    />
+                    <Abutton>로그인</Abutton>
+                  </PaddingBox>
+                </Agrid>
+              </Agrid>
+            </LoginPageBlock>
           </ModalWrap>
         </Modal>
       )}
@@ -63,6 +80,7 @@ const ModalWrap = styled.div`
     line-height: 68px;
     border-bottom: solid 1px #eee;
     padding-left: 10px;
+
     button {
       position: absolute;
       top: 50%;
@@ -74,4 +92,68 @@ const ModalWrap = styled.div`
     }
   }
 `;
+
+const LoginPageBlock = styled.div``;
+const Ainput = styled.input`
+  width: 100%;
+  height: 56px;
+  border: 0.8px solid #cccccc;
+  border-radius: 13px;
+  padding: 0px 10px;
+  margin: 15px 0px;
+  &::placeholder {
+    font-size: 14px;
+  }
+`;
+const Agrid = styled.div`
+  height: auto;
+`;
+const Abutton = styled.button`
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 13px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  background: #ad305a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e84a5f,
+    #ad305a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e84a5f,
+    #ad305a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  cursor: pointer;
+`;
+
+const Xbtn = styled.button`
+  position: absolute;
+  top: 4px;
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  &:hover {
+    background-color: #eeeeee;
+  }
+`;
+
+const Line = styled.hr`
+  margin: 20px 0px;
+  border: none;
+  border-top: 1px solid #b8b8b8;
+`;
+const Cgrid = styled.div`
+  text-align: center;
+  display: flex;
+  position: relative;
+`;
+
 export default LoginModal;
