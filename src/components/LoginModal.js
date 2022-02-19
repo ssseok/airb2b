@@ -4,8 +4,28 @@ import styled from "styled-components";
 
 import { PaddingBox, Text } from "../common";
 
+import { useDispatch } from "react-redux";
+import { actionCreators as userActions } from "../redux/modules/user";
+
 Modal.setAppElement("#root");
 const LoginModal = (props) => {
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = React.useState("");
+  const [passWord, setPassWord] = React.useState("");
+
+  const changeId = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const changePw = (e) => {
+    setPassWord(e.target.value);
+  };
+
+  const login = () => {
+    dispatch(userActions.logInDB(email, passWord));
+  };
+
   const { _isOpen, _isClose } = props;
   const [isOpen, setIsopen] = React.useState(_isOpen);
 
@@ -43,7 +63,8 @@ const LoginModal = (props) => {
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}>
+          }}
+        >
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
@@ -56,12 +77,19 @@ const LoginModal = (props) => {
                     <Text bold="600" size="22px">
                       에어비엔비에 오신 것을 환영합니다.
                     </Text>
-                    <Ainput type="text" placeholder="이메일을 입력하세요." />
+                    <Ainput
+                      type="text"
+                      placeholder="이메일을 입력하세요."
+                      value={email}
+                      onChange={changeId}
+                    />
                     <Ainput
                       type="password"
                       placeholder="비밀번호를 입력하세요."
+                      value={passWord}
+                      onChange={changePw}
                     />
-                    <Abutton>로그인</Abutton>
+                    <Abutton onClick={login}>로그인</Abutton>
                   </PaddingBox>
                 </Agrid>
               </Agrid>
@@ -129,31 +157,6 @@ const Abutton = styled.button`
     #ad305a
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   cursor: pointer;
-`;
-
-const Xbtn = styled.button`
-  position: absolute;
-  top: 4px;
-  width: 35px;
-  height: 35px;
-  border-radius: 35px;
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff;
-  &:hover {
-    background-color: #eeeeee;
-  }
-`;
-
-const Line = styled.hr`
-  margin: 20px 0px;
-  border: none;
-  border-top: 1px solid #b8b8b8;
-`;
-const Cgrid = styled.div`
-  text-align: center;
-  display: flex;
-  position: relative;
 `;
 
 export default LoginModal;

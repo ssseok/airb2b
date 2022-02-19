@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Signup from "./pages/Signup";
-import LoginPage from "./pages/LoginPage";
 import Auth from "./components/Auth";
 // import Footer from "./components/Footer";
 
