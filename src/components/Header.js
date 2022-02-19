@@ -4,7 +4,7 @@ import Auth from "./Auth";
 
 import { ReactComponent as LogoSvg } from "../svg/logo.svg";
 import { ReactComponent as SearchSvg } from "../svg/search.svg";
-import { ReactComponent as GlobalSvg } from "../svg/global.svg";
+// import { ReactComponent as GlobalSvg } from "../svg/global.svg";
 import { ReactComponent as GlobalSvg_w } from "../svg/global_white.svg";
 
 const Header = () => {
