@@ -77,10 +77,6 @@ export default handleActions(
   {
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
-        // draft.userEmail = action.payload.userEmail;
-        // draft.userNickname = action.payload.userNickname;
-        // draft.password = action.payload.password;
-        // draft.passwordConfirm = action.payload.passwordConfirm;
         draft.user = action.payload.user;
       }),
     [LOG_IN]: (state, action) =>
