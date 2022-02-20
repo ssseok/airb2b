@@ -133,26 +133,28 @@ const Main = (props) => {
             </TwoCard>
           </Exp>
         </SecWrap>
-        <MainBottom />
       </Center>
+      <MainBottom />
     </React.Fragment>
   );
 };
 
 const Center = styled.div`
-  margin: 0px 5vw;
+  max-width: calc(min(1760px, 100%) - 160px);
+  margin: 0px auto;
   padding-top: 96px;
   padding-bottom: 48px;
 `;
 
 const Wrap = styled.div`
   height: 100%;
-  width: 90vw;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
 `;
 
 const Card = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   color: white;
@@ -163,11 +165,10 @@ const Localname = styled.div`
   background-color: ${(props) => props.bg};
   border-radius: 0px 0px 15px 15px;
   height: 200px;
-  width: 300px;
+  width: 100%;
 `;
 
 const SecWrap = styled.div`
-  width: 90vw;
   padding: 96px 0;
 `;
 
@@ -175,7 +176,6 @@ const TwoCard = styled.div``;
 
 const Exp = styled.div`
   display: grid;
-  width: 90vw;
   grid-template-columns: 1fr 50%;
   gap: 24px;
   flex-direction: row;
@@ -190,50 +190,6 @@ const TwoImg = styled.div`
   background: ${(props) => `url(${props.background})`};
   background-size: cover;
   background-position: center;
-`;
-
-const LastImg = styled.div`
-  margin: 90px 0px;
-  border-radius: 15px;
-  height: 717px;
-  padding: 80px;
-  background: ${(props) => `url(${props.background})`};
-  background-size: cover;
-  background-position: center;
-`;
-const ImageWrap = styled.div`
-  position: relative;
-  padding-bottom: calc(556 / 1113 * 100%);
-  height: 0;
-  overflow: hidden;
-  letter-spacing: -2.98px;
-
-  div {
-    position: absolute;
-  }
-  img {
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-  }
-
-  .text {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    padding: 40px;
-    line-height: 54px;
-  }
-  h2 {
-    flex: auto;
-    color: #fff;
-    font-size: 49px;
-  }
-  button {
-    border-radius: 8px;
-    background-color: #fff;
-  }
 `;
 
 export default Main;

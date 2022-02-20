@@ -4,10 +4,7 @@ const MainBottom = () => {
   return (
     <ImageWrap>
       <div className="image">
-        <img
-          src="https://a0.muscache.com/im/pictures/0903a029-e330-41f6-add2-652954f62185.jpg?im_w=1440"
-          alt="이미지"
-        />
+        <div></div>
       </div>
       <div className="text">
         <h2>
@@ -22,36 +19,51 @@ const MainBottom = () => {
 };
 const ImageWrap = styled.div`
   position: relative;
-  padding-bottom: calc(556 / 1113 * 100%);
-  height: 0;
-  overflow: hidden;
+  width: calc(min(1760px, 100%) - 160px);
+  margin: 0 auto;
+  margin-bottom: 48px;
   letter-spacing: -2.98px;
-  z-index: -1;
+  /* z-index: -1; */
+  border-radius: 12px;
+  overflow: hidden;
 
-  div {
-    position: absolute;
-  }
+  .image {
+    padding-bottom: calc(800 / 1600 * 100%);
+    height: 0;
 
-  img {
-    top: 50%;
-    left: 50%;
-    border-radius: 15px;
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("https://a0.muscache.com/im/pictures/0903a029-e330-41f6-add2-652954f62185.jpg?im_w=1440")
+        no-repeat center/cover;
+    }
   }
 
   .text {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100%;
-
-    padding: 40px;
-    line-height: 54px;
+    padding: 80px;
   }
+
   h2 {
     flex: auto;
     color: #fff;
-    font-size: 49px;
+    font-size: 95px;
+    line-height: 105px;
   }
+
   button {
+    padding: 14px 24px;
+    font-size: 16px;
     border-radius: 8px;
     background-color: #fff;
   }

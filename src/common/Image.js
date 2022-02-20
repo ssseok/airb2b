@@ -51,7 +51,7 @@ const AspectInner = styled.div`
   padding: ${(props) => props.padding};
   border-radius: ${(props) => props.br};
   position: ${(props) => props.position};
-  z-index: -1;
+  /* z-index: -1; */
 `;
 
 const ImageCircle = styled.div`
