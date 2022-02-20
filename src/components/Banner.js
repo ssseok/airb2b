@@ -36,8 +36,9 @@ const BannerWrap = styled.div`
 
 const BackWrap = styled.div`
   height: 105vh;
-  padding: 80px 0;
-  margin: 0 5vw;
+  max-width: calc(min(1760px, 100%) - 160px);
+  margin: 0 auto;
+  padding: 0 0 80px;
 `;
 
 const ImageWrap = styled.div`
@@ -45,7 +46,7 @@ const ImageWrap = styled.div`
   border-radius: 30px;
   background-image: url("https://a0.muscache.com/im/pictures/f1502649-e034-40ab-9fed-7992b7d550c6.jpg?im_w=2560");
   height: 100%;
-  width: 100%;
+  max-width: 1600px;
   background-size: cover;
   background-position: center;
   align-items: flex-end;
