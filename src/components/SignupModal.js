@@ -144,7 +144,8 @@ const SignupModal = (props) => {
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}>
+          }}
+        >
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
@@ -169,7 +170,8 @@ const SignupModal = (props) => {
                         <br />
                         <Span
                           size="3px"
-                          className={`${isEmail ? "success" : "error"}`}>
+                          className={`${isEmail ? "success" : "error"}`}
+                        >
                           {emailMessage}
                         </Span>
                       </>
@@ -194,7 +196,8 @@ const SignupModal = (props) => {
                         <br />
                         <Span
                           size="3px"
-                          className={`${isPwd ? "success" : "error"}`}>
+                          className={`${isPwd ? "success" : "error"}`}
+                        >
                           {passWordMessage}
                         </Span>
                       </>
@@ -212,7 +215,8 @@ const SignupModal = (props) => {
                         <br />
                         <Span
                           size="3px"
-                          className={`${isPwdCheck ? "success" : "error"}`}>
+                          className={`${isPwdCheck ? "success" : "error"}`}
+                        >
                           {passWordConfirmMessage}
                         </Span>
                       </>
