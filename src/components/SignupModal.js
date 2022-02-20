@@ -129,6 +129,7 @@ const SignupModal = (props) => {
               right: 0,
               bottom: 0,
               backgroundColor: "transparent",
+              zIndex: "20",
             },
             content: {
               transition: "all 3s",

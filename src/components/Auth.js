@@ -48,6 +48,7 @@ const Auth = (props) => {
               right: 0,
               bottom: 0,
               backgroundColor: "transparent",
+              zIndex: "20",
             },
             content: {
               position: "absolute",
