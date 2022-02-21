@@ -18,7 +18,6 @@ const RoomList = () => {
   };
   return (
     <>
-      {/* <Slide /> */}
       <RoomListsDiv>
         <div className="header">
           <span>300개 이상의 숙소 · 3월, 4월, 5월, 6월...의 일주일</span>

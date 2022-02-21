@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import RoomList from "../components/RoomList";
+import Map from "../components/Map";
 
 function Seoul() {
   return (
@@ -30,6 +32,10 @@ function Seoul() {
           />
         </HeaderBtn>
       </BtnPlace>
+      <div style={{ display: "flex" }}>
+        <RoomList />
+        <Map />
+      </div>
     </React.Fragment>
   );
 }
@@ -59,9 +65,9 @@ const HeaderBtn = styled.button`
   width: 6em;
   height: 2.8em;
 `;
-const ButnToBt = styled.img`
-  width: 15px;
-  height: 15px;
-`;
+// const ButnToBt = styled.img`
+//   width: 15px;
+//   height: 15px;
+// `;
 
 export default Seoul;
