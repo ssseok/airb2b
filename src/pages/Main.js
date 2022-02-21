@@ -1,9 +1,11 @@
 import React from "react";
 import { Text, Image, Button } from "../common";
 import styled from "styled-components";
-import Banner from "./Banner";
-import MainBottom from "./MainBottom";
+import Banner from "../components/Banner";
+import MainBottom from "../components/MainBottom";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import HeaderAside from "../components/HeaderAside";
 
 const Main = (props) => {
   const navigate = useNavigate();
@@ -12,10 +14,12 @@ const Main = (props) => {
   };
   return (
     <React.Fragment>
+      <HeaderAside />
+      <Header />
       <Banner />
       <Center>
         <Text size="42px" bold="600" margin="0 0 48px 0">
-          설레는 다음 여행을 위한 아이디어
+          설레는 다음 여행을 위한 아이디어 .
         </Text>
         <Wrap>
           <Card onClick={seoulGo}>

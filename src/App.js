@@ -17,8 +17,6 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <HistoryRouter history={history}>
-      {/* <HeaderAside />
-      <Header /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/list" element={<List />} />
