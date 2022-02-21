@@ -5,7 +5,8 @@ import {
   unstable_HistoryRouter as HistoryRouter,
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Main from "./components/Main";
+import Main from "./pages/Main";
+import List from "./pages/List";
 import HeaderAside from "./components/HeaderAside";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -20,6 +21,7 @@ function App() {
       <Header /> */}
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/list" element={<List />} />
         <Route path="/location" element={<Seoul />} />
         <Route path="/detail" element={<_detail />} />
       </Routes>
