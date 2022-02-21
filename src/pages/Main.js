@@ -19,7 +19,7 @@ const Main = (props) => {
       <Banner />
       <Center>
         <Text size="42px" bold="600" margin="0 0 48px 0">
-          설레는 다음 여행을 위한 아이디어
+          설레는 다음 여행을 위한 아이디어 .
         </Text>
         <Wrap>
           <Card onClick={seoulGo}>

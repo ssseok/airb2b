@@ -16,7 +16,7 @@ const Map = (props) => {
     zoom: 7,
   };
   return (
-    <div style={{ height: "100vh", width: "60%" }}>
+    <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMap
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
         defaultCenter={defaultPorps.center}
