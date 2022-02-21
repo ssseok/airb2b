@@ -9,7 +9,7 @@ import Main from "./components/Main";
 import HeaderAside from "./components/HeaderAside";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
+import _detail from "./pages/_detail";
 export const history = createBrowserHistory();
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/detail" element={<_detail />} />
       </Routes>
       <Footer />
     </HistoryRouter>
