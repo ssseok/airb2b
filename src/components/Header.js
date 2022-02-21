@@ -10,15 +10,14 @@ import { ReactComponent as GlobalSvg_w } from "../svg/global_white.svg";
 const Header = () => {
   const [scroll, setScroll] = React.useState(0);
   const windowOffset = window.pageYOffset;
+
   React.useEffect(() => {
-    console.log(windowOffset);
-    if (windowOffset > 53) {
-      window.addEventListener("scroll", () => {
-        setScroll(window.pageYOffset);
-      });
-      return;
-    }
+    window.addEventListener("scroll", () => {
+      setScroll(window.pageYOffset);
+    });
   }, [setScroll, windowOffset]);
+
+  console.log(scroll);
 
   return (
     <HeaderS className={` ${scroll > 54 ? "sticky" : ""}`}>
