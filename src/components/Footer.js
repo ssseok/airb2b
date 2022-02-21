@@ -131,7 +131,6 @@ const FooterWrap = styled.div`
   li {
     padding: 0 12px;
     margin-top: 12px;
-    list-style: none;
     flex-basis: 33.3333%;
     cursor: pointer;
   }
