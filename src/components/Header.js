@@ -17,8 +17,6 @@ const Header = () => {
     });
   }, [setScroll, windowOffset]);
 
-  console.log(scroll);
-
   return (
     <HeaderS className={` ${scroll > 54 ? "sticky" : ""}`}>
       <div className="main_header ">
