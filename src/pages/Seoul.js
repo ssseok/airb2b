@@ -32,13 +32,17 @@ function Seoul() {
           />
         </HeaderBtn>
       </BtnPlace>
-      <div style={{ display: "flex" }}>
+      <MapWrap>
         <RoomList />
         <Map />
-      </div>
+      </MapWrap>
     </React.Fragment>
   );
 }
+
+const MapWrap = styled.div`
+  display: flex;
+`;
 
 const BtnPlace = styled.div`
   width: 100vw;

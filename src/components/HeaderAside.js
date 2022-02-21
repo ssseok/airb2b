@@ -1,12 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-const HeaderAside = () => {
+import { useLocation } from "react-router";
+
+const HeaderAside = (props) => {
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
-    <Aside>
-      <a href="#">
-        에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.
-      </a>
-    </Aside>
+    <React.Fragment>
+      {pathname === "/" && (
+        <Aside>
+          <a href="#">
+            에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.
+          </a>
+        </Aside>
+      )}
+    </React.Fragment>
   );
 };
 const Aside = styled.aside`

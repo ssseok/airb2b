@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Auth from "./Auth";
+import { useLocation } from "react-router";
 
 import { ReactComponent as LogoSvg } from "../svg/logo.svg";
 import { ReactComponent as SearchSvg } from "../svg/search.svg";
@@ -8,6 +9,7 @@ import { ReactComponent as SearchSvg } from "../svg/search.svg";
 import { ReactComponent as GlobalSvg_w } from "../svg/global_white.svg";
 
 const Header = () => {
+  const { pathname } = useLocation();
   const [scroll, setScroll] = React.useState(0);
   const windowOffset = window.pageYOffset;
 
@@ -18,7 +20,7 @@ const Header = () => {
   }, [setScroll, windowOffset]);
 
   return (
-    <HeaderS className={` ${scroll > 54 ? "sticky" : ""}`}>
+    <HeaderS className={` ${pathname !== "/" || scroll > 54 ? "sticky" : ""}`}>
       <div className="main_header ">
         <a href="#" className="logo">
           <LogoSvg />

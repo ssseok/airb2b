@@ -4,18 +4,14 @@ import styled from "styled-components";
 import Banner from "../components/Banner";
 import MainBottom from "../components/MainBottom";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import HeaderAside from "../components/HeaderAside";
 
-const Main = (props) => {
+const Main = () => {
   const navigate = useNavigate();
   const seoulGo = () => {
     navigate("/location");
   };
   return (
     <React.Fragment>
-      <HeaderAside />
-      <Header />
       <Banner />
       <Center>
         <Text size="42px" bold="600" margin="0 0 48px 0">
@@ -105,8 +101,7 @@ const Main = (props) => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff"
-                >
+                  color="#fff">
                   여행 중 만나는 <br />
                   이색적인 즐길 거리
                 </Text>
@@ -115,8 +110,7 @@ const Main = (props) => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px"
-                >
+                  borderRadius="8px">
                   체험
                 </Button>
               </TwoImg>
@@ -128,8 +122,7 @@ const Main = (props) => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff"
-                >
+                  color="#fff">
                   집에서 만나는 <br />
                   다양한 즐길 거리
                 </Text>
@@ -138,8 +131,7 @@ const Main = (props) => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px"
-                >
+                  borderRadius="8px">
                   온라인 체험
                 </Button>
               </TwoImg>
