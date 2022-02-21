@@ -12,7 +12,9 @@ function Seoul() {
           <img src="./img/airb2b1.png" alt="" />
         </HeaderBtn>
         <HeaderBtn style={{ width: "8.3em" }}>숙소 유형</HeaderBtn>
-        <p style={{ fontSize: "18px", color: "#DDDDDD" }}>ㅣ</p>
+        <p style={{ fontSize: "18px", color: "#DDDDDD", marginRigh: "10px" }}>
+          ㅣ
+        </p>
         <HeaderBtn style={{ width: "10em" }}>취소 수수료 없음</HeaderBtn>
         <HeaderBtn style={{ width: "7.8em" }}>수변에 인접</HeaderBtn>
         <HeaderBtn style={{ width: "4.7em" }}>주방</HeaderBtn>
@@ -24,12 +26,12 @@ function Seoul() {
         <HeaderBtn style={{ width: "9em" }}>업무 전용 공간</HeaderBtn>
         <HeaderBtn style={{ width: "5.5em" }}>건조기</HeaderBtn>
         <HeaderBtn>
-          필터
           <img
-            style={{ width: "15px", height: "15px", marginTop: "-14px" }}
+            style={{ width: "15px", height: "15px" }}
             src="./img/airb2b2.png"
             alt=""
           />
+          필터
         </HeaderBtn>
       </BtnPlace>
       <MapWrap>
@@ -42,24 +44,39 @@ function Seoul() {
 
 const MapWrap = styled.div`
   display: flex;
+
+  .room_list {
+    flex: 1.5;
+  }
+
+  .map {
+    flex: 2;
+  }
 `;
 
 const BtnPlace = styled.div`
-  width: 100vw;
-  height: 12vh;
+  position: sticky;
   display: flex;
+  top: 80px;
+  width: 100vw;
+  height: 68px;
+  padding: 0 24px;
   margin: auto;
-  justify-content: space-evenly;
   align-items: center;
+  background-color: #fff;
+  z-index: 10;
 `;
 
 const HeaderBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   text-align: center;
   border: 1px solid rgb(221, 221, 221);
   background-color: rgb(255, 255, 255);
   outline: none;
-  margin: 0px;
+  margin-right: 10px;
   border-radius: 30px;
   color: rgb(34, 34, 34);
   position: relative;
@@ -68,6 +85,13 @@ const HeaderBtn = styled.button`
   line-height: 16px;
   width: 6em;
   height: 2.8em;
+
+  img {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+  }
 `;
 // const ButnToBt = styled.img`
 //   width: 15px;

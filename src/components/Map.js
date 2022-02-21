@@ -16,12 +16,11 @@ const Map = (props) => {
     zoom: 7,
   };
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <div className="map" style={{ height: "100vh" }}>
       <GoogleMap
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
         defaultCenter={defaultPorps.center}
-        defaultZoom={defaultPorps.zoom}
-      >
+        defaultZoom={defaultPorps.zoom}>
         <React.Fragment>
           <Marker lat={37.579684} lng={126.977054} />
         </React.Fragment>
