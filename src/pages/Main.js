@@ -9,6 +9,7 @@ const Main = () => {
   const navigate = useNavigate();
   const seoulGo = () => {
     navigate("/location");
+    window.scrollTo(0, 0);
   };
   return (
     <React.Fragment>
@@ -101,7 +102,8 @@ const Main = () => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff">
+                  color="#fff"
+                >
                   여행 중 만나는 <br />
                   이색적인 즐길 거리
                 </Text>
@@ -110,7 +112,8 @@ const Main = () => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px">
+                  borderRadius="8px"
+                >
                   체험
                 </Button>
               </TwoImg>
@@ -122,7 +125,8 @@ const Main = () => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff">
+                  color="#fff"
+                >
                   집에서 만나는 <br />
                   다양한 즐길 거리
                 </Text>
@@ -131,7 +135,8 @@ const Main = () => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px">
+                  borderRadius="8px"
+                >
                   온라인 체험
                 </Button>
               </TwoImg>
