@@ -20,7 +20,7 @@ const RoomList = () => {
     <>
       <RoomListsDiv className="room_list">
         <div className="header">
-          <span>300개 이상의 숙소 · 3월, 4월, 5월, 6월...의 일주일</span>
+          <span>서울에 위치한 300개 이상의 숙소</span>
           <div className="corona">
             <span>
               예약하기 전에 코로나19 관련 여행 제한 사항을 확인하세요.
