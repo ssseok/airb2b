@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, Image, Button } from "../common";
 import styled from "styled-components";
-import Banner from "./Banner";
-import MainBottom from "./MainBottom";
+import Banner from "../components/Banner";
+import MainBottom from "../components/MainBottom";
 import { useNavigate } from "react-router-dom";
 
 const Main = (props) => {
@@ -101,8 +101,7 @@ const Main = (props) => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff"
-                >
+                  color="#fff">
                   여행 중 만나는 <br />
                   이색적인 즐길 거리
                 </Text>
@@ -111,8 +110,7 @@ const Main = (props) => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px"
-                >
+                  borderRadius="8px">
                   체험
                 </Button>
               </TwoImg>
@@ -124,8 +122,7 @@ const Main = (props) => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff"
-                >
+                  color="#fff">
                   집에서 만나는 <br />
                   다양한 즐길 거리
                 </Text>
@@ -134,8 +131,7 @@ const Main = (props) => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px"
-                >
+                  borderRadius="8px">
                   온라인 체험
                 </Button>
               </TwoImg>
