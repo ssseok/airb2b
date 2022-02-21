@@ -4,18 +4,14 @@ import styled from "styled-components";
 import Banner from "../components/Banner";
 import MainBottom from "../components/MainBottom";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import HeaderAside from "../components/HeaderAside";
 
-const Main = (props) => {
+const Main = () => {
   const navigate = useNavigate();
   const seoulGo = () => {
     navigate("/location");
   };
   return (
     <React.Fragment>
-      <HeaderAside />
-      <Header />
       <Banner />
       <Center>
         <Text size="42px" bold="600" margin="0 0 48px 0">
