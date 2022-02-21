@@ -31,7 +31,6 @@ const ExperWrap = styled.div`
   }
 
   li {
-    list-style: none;
     background: url("https://a0.muscache.com/im/pictures/0fa7e0a7-c3c2-410a-b5c0-567cfca193cb.jpg?im_w=720")
       no-repeat center / cover;
 

@@ -1,10 +1,15 @@
 import React from "react";
 import { Text, Image, Button } from "../common";
 import styled from "styled-components";
-import Banner from "../components/Banner";
-import MainBottom from "../components/MainBottom";
+import Banner from "./Banner";
+import MainBottom from "./MainBottom";
+import { useNavigate } from "react-router-dom";
 
 const Main = (props) => {
+  const navigate = useNavigate();
+  const seoulGo = () => {
+    navigate("/location");
+  };
   return (
     <React.Fragment>
       <Banner />
@@ -13,7 +18,7 @@ const Main = (props) => {
           설레는 다음 여행을 위한 아이디어
         </Text>
         <Wrap>
-          <Card>
+          <Card onClick={seoulGo}>
             <Image
               br="15px 15px 0px 0px"
               shape="rectangle"

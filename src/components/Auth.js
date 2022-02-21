@@ -144,7 +144,6 @@ const AuthModalS = styled.button`
 const AuthList = styled.ul`
   padding: 8px 0;
   border-radius: 10px;
-  list-style: none;
   font-size: 14px;
   color: #222222;
 
