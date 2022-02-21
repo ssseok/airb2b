@@ -20,7 +20,10 @@ const Header = () => {
   }, [setScroll, windowOffset]);
 
   return (
-    <HeaderS className={` ${pathname !== "/" || scroll > 54 ? "sticky" : ""}`}>
+    <HeaderS
+      className={` ${
+        pathname !== "/" ? "sticky map" : scroll > 54 ? "sticky" : ""
+      }`}>
       <div className="main_header ">
         <a href="#" className="logo">
           <LogoSvg />
@@ -171,6 +174,14 @@ const HeaderS = styled.header`
           box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px 0px;
         }
       }
+    }
+  }
+
+  &.map {
+    .main_header {
+      max-width: 1760px;
+      max-width: none;
+      padding: 0 24px;
     }
   }
 `;
