@@ -67,7 +67,8 @@ const LoginModal = (props) => {
               WebkitOverflowScrolling: "touch",
               outline: "none",
             },
-          }}>
+          }}
+        >
           <ModalWrap>
             <header>
               <button onClick={isClose}></button>
