@@ -15,7 +15,6 @@ const Map = (props) => {
         defaultZoom={props.zoom}
       >
         {roomList.map((v, idx) => {
-          console.log(v.lat, v.lng);
           return <Marker key={idx} lat={v.lat} lng={v.lng} info={v} />;
         })}
       </GoogleMap>
