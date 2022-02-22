@@ -10,7 +10,7 @@ import HeaderAside from "./components/HeaderAside";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Seoul from "./pages/Seoul";
-import _detail from "./pages/_detail";
+import Detail from "./pages/Detail";
 export const history = createBrowserHistory();
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/location" element={<Seoul />} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
       <Footer />
     </HistoryRouter>
