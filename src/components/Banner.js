@@ -17,7 +17,8 @@ const Banner = (props) => {
                 padding=""
                 width="30%"
                 color="222222"
-                borderRadiuss="40px">
+                borderRadiuss="40px"
+              >
                 유연한 검색
               </Button>
             </div>

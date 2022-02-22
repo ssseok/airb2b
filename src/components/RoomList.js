@@ -6,8 +6,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { Pagination } from "@mui/material";
 import { ReactComponent as LikeSvg } from "../svg/like_it_defualt.svg";
 import { ReactComponent as LikeActiveSvg } from "../svg/like_it_active.svg";
+import { useNavigate } from "react-router-dom";
 
 const RoomList = (props) => {
+  const navigate = useNavigate();
   const settings = {
     dots: true,
     arrows: true,
@@ -17,6 +19,10 @@ const RoomList = (props) => {
     slidesToScroll: 1,
   };
   console.log(props);
+
+  const placeMove = (placeId) => {
+    navigate(`/detail/${placeId}`);
+  };
 
   return (
     <React.Fragment>
@@ -32,7 +38,12 @@ const RoomList = (props) => {
         </div>
         <RoomListUl>
           {props.list.map((v, idx) => (
-            <li key={idx}>
+            <li
+              key={idx}
+              onClick={() => {
+                placeMove(v.placeId);
+              }}
+            >
               <ImgSlide className="image">
                 <Slider {...settings}>
                   <div className="img_wrap">

@@ -15,11 +15,7 @@ const Map = (props) => {
       >
         {roomList.map((v, idx) => {
           console.log(v.lat, v.lng);
-          return (
-            <React.Fragment key={idx}>
-              <Marker lat={v.lat} lng={v.lng} info={v} />
-            </React.Fragment>
-          );
+          return <Marker key={idx} lat={v.lat} lng={v.lng} info={v} />;
         })}
       </GoogleMap>
     </div>
