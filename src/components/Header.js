@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Auth from "./Auth";
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 import { ReactComponent as LogoSvg } from "../svg/logo.svg";
 import { ReactComponent as SearchSvg } from "../svg/search.svg";
@@ -9,9 +10,14 @@ import { ReactComponent as SearchSvg } from "../svg/search.svg";
 import { ReactComponent as GlobalSvg_w } from "../svg/global_white.svg";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [scroll, setScroll] = React.useState(0);
   const windowOffset = window.pageYOffset;
+
+  const mainGo = () => {
+    navigate("/");
+  };
 
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -23,9 +29,10 @@ const Header = () => {
     <HeaderS
       className={` ${
         pathname !== "/" ? "sticky map" : scroll > 54 ? "sticky" : ""
-      }`}>
+      }`}
+    >
       <div className="main_header ">
-        <a href="#" className="logo">
+        <a href="#" className="logo" onClick={mainGo}>
           <LogoSvg />
         </a>
         <div className="search">
