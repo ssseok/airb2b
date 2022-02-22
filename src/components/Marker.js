@@ -2,26 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Focus from "./Focus";
 import { MdHome } from "react-icons/md";
-import { useSelector } from "react-redux";
 
 const Marker = (props) => {
-  const { text, isShow, info } = props;
+  const { isShow, info } = props;
   const [visible, setVisible] = React.useState(isShow);
-  const [isFoucus, setIsFocus] = React.useState(false);
   const [isSelected, setIsSelected] = React.useState(false);
-
-  // const info = useSelector((state) => state.list.list);
-
-  const detail = useSelector((state) => state.list.list);
-  // console.log(detail);
-
-  // React.useEffect(() => {
-  //   if (detail.placeId) {
-  //     setIsFocus(true);
-  //   } else {
-  //     setIsFocus(false);
-  //   }
-  // }, [detailId]);
 
   const toggleIsSelected = () => {
     setIsSelected(isSelected ? false : true);
