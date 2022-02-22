@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Pagination } from "@mui/material";
 import { ReactComponent as LikeSvg } from "../svg/like_it_defualt.svg";
 import { ReactComponent as LikeActiveSvg } from "../svg/like_it_active.svg";
 
-const RoomList = () => {
+const RoomList = (props) => {
   const settings = {
     dots: true,
     arrows: true,
@@ -16,8 +16,9 @@ const RoomList = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  console.log(props);
   return (
-    <>
+    <React.Fragment>
       <RoomListsDiv className="room_list">
         <div className="header">
           <span>서울에 위치한 300개 이상의 숙소</span>
@@ -29,55 +30,74 @@ const RoomList = () => {
           </div>
         </div>
         <RoomListUl>
-          <li>
-            <ImgSlide className="image">
-              <Slider {...settings}>
-                <div className="img_wrap">
-                  <img src="https://a0.muscache.com/im/pictures/9fbce5a9-7e7b-49e9-890b-af9afc6d9608.jpg?im_w=720" />
-                </div>
-                <div className="img_wrap">
-                  <img src="https://a0.muscache.com/im/pictures/9fbce5a9-7e7b-49e9-890b-af9afc6d9608.jpg?im_w=720" />
-                </div>
-              </Slider>
-            </ImgSlide>
-            <div className="content">
-              <dl className="title">
-                <dt>
-                  <span>제주시의 집 전체</span>
-                  <h3>제주 공항근처 시내에 위치한 한달살기 202</h3>
-                </dt>
-                <dd className="like_it">
-                  <LikeSvg />
-                  <LikeActiveSvg />
-                </dd>
-              </dl>
-              <i className="line"></i>
-              <span>최대 인원 2명침실 1개침대 1개욕실 1개</span>
-              <br />
-              <span>무료 주차 공간 · 주방 · 무선 인터넷 · 세탁기</span>
-              <button>4월 29일 ~ 5월 6일 |더 보기</button>
-              <dl>
-                <dt>
-                  <i className="star"></i>4.55 <span>(후기 175개)</span>
-                </dt>
-                <dd>
-                  <Price className="discount">
-                    ₩ 42,761
-                    <em> / 박</em>
-                  </Price>
-                  <span>총액 ₩ 299,326</span>
-                </dd>
-              </dl>
-            </div>
-          </li>
+          {props.list.map((v, idx) => (
+            <li key={idx}>
+              <ImgSlide className="image">
+                <Slider {...settings}>
+                  <div className="img_wrap">
+                    <img src={v.image1} />
+                  </div>
+                  <div className="img_wrap">
+                    <img src={v.image2} />
+                  </div>
+                  <div className="img_wrap">
+                    <img src={v.image3} />
+                  </div>
+                  <div className="img_wrap">
+                    <img src={v.image4} />
+                  </div>
+                  <div className="img_wrap">
+                    <img src={v.image5} />
+                  </div>
+                </Slider>
+              </ImgSlide>
+              <div className="content">
+                <dl className="title">
+                  <dt>
+                    <span>{v.subtitle}</span>
+                    <h3>{v.placeName}</h3>
+                  </dt>
+                  <dd className="like_it">
+                    <LikeSvg />
+                    <LikeActiveSvg />
+                  </dd>
+                </dl>
+                <i className="line"></i>
+                <span>{v.subtitle1}</span>
+                <br />
+                <span>
+                  {v.Convenience1} ·{v.Convenience2} · {v.Convenience3} ·
+                  {v.Convenience4}
+                </span>
+                {/* <button>4월 29일 ~ 5월 6일 |더 보기</button> */}
+                <dl className="price_wrap">
+                  <dt>
+                    <i className="star"></i>
+                    {v.rating}
+                    <span>(후기 {v.comment_Cnt}개)</span>
+                  </dt>
+                  <dd>
+                    {/* <Price className="discount">
+                      ₩ 42,761
+                      <em> / 박</em>
+                    </Price>
+                    <span>총액 ₩ 299,326</span> */}
+                  </dd>
+                </dl>
+              </div>
+            </li>
+          ))}
         </RoomListUl>
+        <div className="pagination">
+          <Pagination count={15} defaultPage={1} />
+        </div>
 
         <div className="footer">
           전체 요금을 보려면 날짜를 입력하세요. 추가 요금이 적용되고 세금이
           추가될 수 있습니다.
         </div>
       </RoomListsDiv>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -165,6 +185,8 @@ const RoomListUl = styled.ul`
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
     flex: auto;
     margin-left: 16px;
   }
@@ -177,6 +199,9 @@ const RoomListUl = styled.ul`
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+  }
+  .price_wrap {
+    margin-top: auto;
   }
 
   .like_it {
@@ -236,6 +261,13 @@ const RoomListsDiv = styled.div`
   h2 {
     font-size: 32px;
     font-weight: 600;
+  }
+
+  .pagination {
+    padding: 20px;
+    ul {
+      justify-content: center;
+    }
   }
 
   .footer {
