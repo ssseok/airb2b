@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Pagination } from "@mui/material";
 import { ReactComponent as LikeSvg } from "../svg/like_it_defualt.svg";
 import { ReactComponent as LikeActiveSvg } from "../svg/like_it_active.svg";
+import LikeIt from "./LikeIt";
 
 const RoomList = (props) => {
   const settings = {
@@ -16,7 +17,6 @@ const RoomList = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  console.log(props);
 
   return (
     <React.Fragment>
@@ -59,17 +59,17 @@ const RoomList = (props) => {
                     <h3>{v.placeName}</h3>
                   </dt>
                   <dd className="like_it">
-                    <LikeSvg />
-                    <LikeActiveSvg />
+                    <LikeIt />
                   </dd>
                 </dl>
                 <i className="line"></i>
                 <span>{v.subtitle1}</span>
-                <br />
-                <span>
-                  {v.Convenience1} ·{v.Convenience2} · {v.Convenience3} ·
-                  {v.Convenience4}
-                </span>
+                <div>
+                  <span>
+                    {v.Convenience1} ·{v.Convenience2} · {v.Convenience3} ·
+                    {v.Convenience4}
+                  </span>
+                </div>
                 {/* <button>4월 29일 ~ 5월 6일 |더 보기</button> */}
                 <dl className="price_wrap">
                   <dt>
@@ -79,8 +79,8 @@ const RoomList = (props) => {
                   </dt>
                   <dd>
                     <Price className="discount" discount={v.oldprice}>
-                      ₩ {}
-                      <em>{v.newprice} / 박</em>
+                      {v.newprice}
+                      <em> / 박</em>
                     </Price>
                     <span>총액 ₩ {v.oldprice}</span>
                   </dd>
@@ -102,7 +102,7 @@ const RoomList = (props) => {
   );
 };
 
-const Price = styled.p`
+export const Price = styled.p`
   font-size: 18px;
   font-weight: 600;
 
@@ -150,6 +150,7 @@ const ImgSlide = styled.div`
     li {
       border: none !important;
     }
+
     li button {
       margin: 0;
       padding: 0;
@@ -171,14 +172,18 @@ const ImgSlide = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    background: url("https://a0.muscache.com/im/pictures/9fbce5a9-7e7b-49e9-890b-af9afc6d9608.jpg?im_w=720")
-      no-repeat center / contain;
   }
 `;
 
 const RoomListUl = styled.ul`
   border-top: solid 1px #ebebeb;
   margin-top: 12px;
+
+  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   li {
     display: flex;
@@ -195,6 +200,9 @@ const RoomListUl = styled.ul`
 
   .title {
     align-items: flex-start;
+    dt {
+      width: 90%;
+    }
   }
 
   dl {
