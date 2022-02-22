@@ -12,15 +12,15 @@ const initialState = {
 
 const getList = createAction(GET_LIST, (list) => ({ list }));
 
-const getListDB = () => {
+const getListDB = (listId) => {
   return function (dispatch, getState, { history }) {
     apis
-      .getlist()
+      .getlist(listId)
       .then((res) => {
-        console.log(res);
-        dispatch(getList(res.data));
+        dispatch(getList(res.data.locationPlaces));
       })
       .catch((err) => {
+        console.log("nooo");
         console.log(err);
       });
   };

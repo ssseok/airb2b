@@ -1,9 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { actionCreators as listAction } from "../redux/modules/list";
 import styled from "styled-components";
 import RoomList from "../components/RoomList";
 import Map from "../components/Map";
 
 function Seoul() {
+  const dispatch = useDispatch();
+  const room_list = useSelector((state) => state.list);
+  console.log(room_list);
+
+  React.useEffect(() => {
+    dispatch(listAction.getListDB(1));
+  }, []);
   return (
     <React.Fragment>
       <BtnPlace>
@@ -35,7 +44,7 @@ function Seoul() {
         </HeaderBtn>
       </BtnPlace>
       <MapWrap>
-        <RoomList />
+        <RoomList {...room_list} />
         <Map />
       </MapWrap>
     </React.Fragment>
