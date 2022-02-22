@@ -4,13 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Pagination } from "@mui/material";
-import { ReactComponent as LikeSvg } from "../svg/like_it_defualt.svg";
-import { ReactComponent as LikeActiveSvg } from "../svg/like_it_active.svg";
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
-=======
 import LikeIt from "./LikeIt";
->>>>>>> 7a76dc99ec20adf417bf3d1e1a62bf39bd98ab46
 
 const RoomList = (props) => {
   const navigate = useNavigate();
@@ -45,8 +40,7 @@ const RoomList = (props) => {
               key={idx}
               onClick={() => {
                 placeMove(v.placeId);
-              }}
-            >
+              }}>
               <ImgSlide className="image">
                 <Slider {...settings}>
                   <div className="img_wrap">
