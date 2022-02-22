@@ -10,7 +10,6 @@ import HeaderAside from "./components/HeaderAside";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Seoul from "./pages/Seoul";
-import _detail from "./pages/_detail";
 export const history = createBrowserHistory();
 
 function App() {
