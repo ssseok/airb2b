@@ -15,7 +15,6 @@ const SignupModal = (props) => {
     setIsopen(false);
     _isClose();
   };
-  const { history } = props;
   const dispatch = useDispatch();
 
   const [email, setEmail] = React.useState("");
