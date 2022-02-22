@@ -36,6 +36,8 @@ export const apis = {
       passwordConfirm: passwordConfirm,
     }),
 
+  getlist: (listId) => instance.get(`api/location/${listId}`),
+
   //   //상세페이지 뷰
   //   getDetail: (locationId, accomoId) =>
   //     instance.get(`api/place/${locationId}/list/${accomoId}`),
