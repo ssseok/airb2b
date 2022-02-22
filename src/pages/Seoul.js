@@ -8,7 +8,6 @@ import Map from "../components/Map";
 function Seoul() {
   const dispatch = useDispatch();
   const room_list = useSelector((state) => state.list);
-  console.log(room_list);
 
   React.useEffect(() => {
     dispatch(listAction.getListDB(1));
@@ -45,7 +44,7 @@ function Seoul() {
       </BtnPlace>
       <MapWrap>
         <RoomList {...room_list} />
-        <Map />
+        <Map {...room_list} />
       </MapWrap>
     </React.Fragment>
   );
