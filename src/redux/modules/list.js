@@ -26,12 +26,15 @@ const getListDB = () => {
   };
 };
 
-export default handleActions({
-  [GET_LIST]: (state, action) =>
-    produce(state, (draft) => {
-      draft.list = action.payload.list;
-    }),
-});
+export default handleActions(
+  {
+    [GET_LIST]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list = action.payload.list;
+      }),
+  },
+  initialState
+);
 
 const actionCreators = {
   getListDB,
