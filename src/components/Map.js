@@ -5,6 +5,7 @@ import Marker from "./Marker";
 
 const Map = (props) => {
   const roomList = useSelector((state) => state.list.list);
+  // console.log(roomList);
 
   return (
     <div className="map" style={{ height: "100vh" }}>
@@ -14,12 +15,7 @@ const Map = (props) => {
         defaultZoom={props.zoom}
       >
         {roomList.map((v, idx) => {
-          console.log(v.lat, v.lng);
-          return (
-            <React.Fragment key={idx}>
-              <Marker lat={v.lat} lng={v.lng} info={v} />
-            </React.Fragment>
-          );
+          return <Marker key={idx} lat={v.lat} lng={v.lng} info={v} />;
         })}
       </GoogleMap>
     </div>

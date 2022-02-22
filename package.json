@@ -67,9 +67,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "json-server": "^0.17.0"
-  },
-  "proxy": "http://3.34.130.88"
+  }
 }
