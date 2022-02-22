@@ -77,11 +77,11 @@ const RoomList = (props) => {
                     <span>(후기 {v.comment_Cnt}개)</span>
                   </dt>
                   <dd>
-                    {/* <Price className="discount">
-                      ₩ 42,761
-                      <em> / 박</em>
+                    <Price className="discount" discount={v.oldprice}>
+                      ₩ {}
+                      <em>{v.newprice} / 박</em>
                     </Price>
-                    <span>총액 ₩ 299,326</span> */}
+                    <span>총액 ₩ {v.oldprice}</span>
                   </dd>
                 </dl>
               </div>
@@ -111,7 +111,8 @@ const Price = styled.p`
 
   &.discount {
     &:before {
-      content: "₩ 22,761";
+      ${(props) =>
+        props.discount ? `content:'₩ ${props.discount} ';` : "content:none;"};
       font-weight: 400;
       color: #717171;
       text-decoration: line-through;
