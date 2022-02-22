@@ -16,7 +16,7 @@ const RoomList = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  console.log(props);
+
   return (
     <React.Fragment>
       <RoomListsDiv className="room_list">
