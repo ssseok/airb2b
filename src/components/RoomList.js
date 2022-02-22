@@ -7,6 +7,7 @@ import { Pagination } from "@mui/material";
 import { ReactComponent as LikeSvg } from "../svg/like_it_defualt.svg";
 import { ReactComponent as LikeActiveSvg } from "../svg/like_it_active.svg";
 import { useNavigate } from "react-router-dom";
+import LikeIt from "./LikeIt";
 
 const RoomList = (props) => {
   const navigate = useNavigate();
