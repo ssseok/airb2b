@@ -1,12 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import DetailTop from "../components/DetailTop";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as listActions } from "../redux/modules/list";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 import { useParams } from "react-router-dom";
+import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
 import DetailMap from "../components/DetailMap";
-import DetailText from "../components/DetailText";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
@@ -20,13 +21,28 @@ const Detail = (props) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <DetailWrapS>
       <DetailTop {...placeInfo} />
-      <DetailText {...placeInfo} />
+      <div className="flex_wrap">
+        <DetailText {...placeInfo} />
+        <div className="re-card"></div>
+      </div>
       <DetailComment {...placeInfo} />
       <DetailMap {...placeInfo} />
-    </React.Fragment>
+    </DetailWrapS>
   );
 };
+const DetailWrapS = styled.div`
+  max-width: 1120px;
+  margin: 0 auto;
 
+  .flex_wrap {
+    display: flex;
+  }
+
+  .re-card {
+    width: 33.33333333333333%;
+    margin-left: 8.333333333333332%;
+  }
+`;
 export default Detail;
