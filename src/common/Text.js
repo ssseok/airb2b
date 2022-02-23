@@ -13,6 +13,7 @@ const Text = (props) => {
     width,
     center,
     padding,
+    deco,
   } = props;
 
   const styles = {
@@ -25,6 +26,7 @@ const Text = (props) => {
     width: width,
     center: center,
     padding: padding,
+    deco: deco,
   };
 
   return (
@@ -42,6 +44,7 @@ Text.defaultProps = {
   margin: false,
   _onClick: () => {},
   is_flex: false,
+  deco: false,
 };
 
 const P = styled.p`
@@ -53,6 +56,7 @@ const P = styled.p`
   width: ${(props) => props.width};
   ${(props) => (props.right ? `justify-content: flex-end;` : "")}
   ${(props) => (props.is_flex ? `display: flex; align-items: center; ` : "")}
+  ${(props) => (props.deco ? `text-decoration: underline;` : "")}
 `;
 
 export default Text;
