@@ -9,12 +9,14 @@ import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
 import CommentList from "../components/CommentList";
 import DetailMap from "../components/DetailMap";
+import CommentList from "../components/CommentList";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
   const _place_id = parseInt(params.placeId);
   const placeInfo = useSelector((state) => state.list.listOne);
+
   const comment_data = useSelector((state) => state.comment);
 
   React.useEffect(() => {
@@ -30,7 +32,9 @@ const Detail = (props) => {
         <div className="re-card"></div>
       </div>
       <DetailComment {...placeInfo} />
+
       <CommentList {...comment_data} />
+
       <DetailMap {...placeInfo} />
     </DetailWrapS>
   );
