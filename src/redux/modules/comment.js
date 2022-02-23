@@ -10,9 +10,8 @@ const DELETE_COMMENT = "DELETE_COMMENT";
 
 const LOADING = "LOADING";
 
-const setComment = createAction(SET_COMMENT, (post_id, comment_list) => ({
-  post_id,
-  comment_list,
+const setComment = createAction(SET_COMMENT, (comments) => ({
+  comments,
 }));
 const addComment = createAction(
   ADD_COMMENT,
@@ -31,14 +30,36 @@ const initialState = {
   is_loading: false,
 };
 
-const getCommentDB = (post_id) => {
-  return function (dispatch, getState, { history }) {};
-};
-
-const addCommentDB = (userNickname, commentContent) => {
+const getCommentDB = (placeId) => {
   return function (dispatch, getState, { history }) {
     apis
-      .addComment(userNickname, commentContent)
+      .getComment(placeId)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+const addCommentDB = (placeId, userNickname, commentContent) => {
+  return function (dispatch, getState, { history }) {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    const data = {
+      userNickname: userNickname,
+      commentContent: commentContent,
+    };
+    console.log(data);
+    apis
+      .addComment(
+        userNickname,
+        commentContent
+        //    {
+        //   headers: { Authorization: "Bearer " + token },
+        // }
+      )
       .then((res) => {
         dispatch(addComment(res.data));
       })
@@ -51,7 +72,10 @@ const addCommentDB = (userNickname, commentContent) => {
 export default handleActions(
   {
     [SET_COMMENT]: (state, action) => produce(state, (draft) => {}),
-    [ADD_COMMENT]: (state, action) => produce(state, (draft) => {}),
+    [ADD_COMMENT]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list.unshift(action.payload.commentContent);
+      }),
     [LOADING]: (state, action) =>
       produce(state, (draft) => {
         draft.is_loading = action.payload.is_loading;
