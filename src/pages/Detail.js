@@ -16,7 +16,6 @@ const Detail = (props) => {
   }, []);
 
   return (
-
     <React.Fragment>
       <DetailTop {...placeInfo} />
       <DetailComment {...placeInfo} />
