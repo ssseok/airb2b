@@ -55,7 +55,7 @@ Button.defaultProps = {
 const DefaultBtn = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  min-height: 48px;
+  min-height: 55px;
   padding: ${(props) => props.padding};
   border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius};
