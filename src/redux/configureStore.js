@@ -5,12 +5,14 @@ import { createBrowserHistory } from "history";
 import User from "./modules/user";
 import Modal from "./modules/modal";
 import List from "./modules/list";
+import comment from "./modules/comment";
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
   user: User,
   modal: Modal,
   list: List,
+  comment: comment,
 });
 
 const middlewares = [thunk.withExtraArgument({ history: history })];
