@@ -8,12 +8,14 @@ import { useParams } from "react-router-dom";
 import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
 import DetailMap from "../components/DetailMap";
+import CommentList from "../components/CommentList";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
   const _place_id = parseInt(params.placeId);
   const placeInfo = useSelector((state) => state.list.listOne);
+  console.log(placeInfo);
 
   React.useEffect(() => {
     dispatch(listActions.getListDetailDB(_place_id));
@@ -28,6 +30,7 @@ const Detail = (props) => {
         <div className="re-card"></div>
       </div>
       <DetailComment {...placeInfo} />
+      <CommentList {...placeInfo} />
       <DetailMap {...placeInfo} />
     </DetailWrapS>
   );

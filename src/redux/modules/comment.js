@@ -4,13 +4,17 @@ import { Axios } from "axios";
 import { instance } from "../../shared/TEST.JS";
 import { apis } from "../../shared/api";
 
-const SET_COMMENT = "SET_COMMENT";
+// const SET_COMMENT = "SET_COMMENT";
+const GET_COMMENT = "GET_COMMENT";
 const ADD_COMMENT = "ADD_COMMENT";
 const DELETE_COMMENT = "DELETE_COMMENT";
 
 const LOADING = "LOADING";
 
-const setComment = createAction(SET_COMMENT, (comments) => ({
+// const setComment = createAction(SET_COMMENT, (comments) => ({
+//   comments,
+// }));
+const getComment = createAction(GET_COMMENT, (comments) => ({
   comments,
 }));
 const addComment = createAction(ADD_COMMENT, (comment_data) => ({
@@ -31,7 +35,7 @@ const getCommentDB = (placeId) => {
     apis
       .getComment(placeId)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -68,7 +72,8 @@ const addCommentDB = (userNickname, commentContent, placeId) => {
 };
 export default handleActions(
   {
-    [SET_COMMENT]: (state, action) => produce(state, (draft) => {}),
+    // [SET_COMMENT]: (state, action) => produce(state, (draft) => {}),
+    [GET_COMMENT]: (state, action) => produce(state, (draft) => {}),
     [ADD_COMMENT]: (state, action) =>
       produce(state, (draft) => {
         draft.list.unshift(action.payload.comment_data);
@@ -84,7 +89,8 @@ export default handleActions(
 const actionCreators = {
   addCommentDB,
   getCommentDB,
-  setComment,
+  // setComment,
+  getComment,
   addComment,
 };
 
