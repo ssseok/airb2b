@@ -1,16 +1,16 @@
 import React from "react";
-import styled from "styled-components";
-import { Text } from "../common/Text";
 
 const DetailList = (props) => {
-  // console.log(props);
+  console.log(props);
   return (
-    <React.Fragment>
-      <DetailWrap></DetailWrap>
-    </React.Fragment>
+    <>
+      {props.list.map((v, idx) => (
+        <li key={idx}>
+          <p>{v.placeName}</p>
+        </li>
+      ))}
+    </>
   );
 };
-
-const DetailWrap = styled.div``;
 
 export default DetailList;

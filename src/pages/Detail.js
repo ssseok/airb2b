@@ -13,9 +13,9 @@ const Detail = (props) => {
   }, []);
 
   return (
-    <React.Fragment>
-      <DetailList />
-    </React.Fragment>
+    <>
+      <DetailList {...room_list} />
+    </>
   );
 };
 
