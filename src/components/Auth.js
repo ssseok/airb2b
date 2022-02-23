@@ -30,7 +30,8 @@ const Auth = (props) => {
       <AuthModalS
         onClick={() => {
           setAuthModal(true);
-        }}>
+        }}
+      >
         <HamSvg className="menu" />
 
         <UserSvg className="user" />
@@ -67,14 +68,17 @@ const Auth = (props) => {
               border: "solid 1px #eee",
               zIndex: 10,
             },
-          }}>
+          }}
+        >
           {token ? (
             <AuthList className="line">
               <li
                 onClick={() => {
                   localStorage.removeItem("token");
+                  localStorage.removeItem("userNickname");
                   authModalClose();
-                }}>
+                }}
+              >
                 로그아웃
               </li>
             </AuthList>
@@ -84,14 +88,16 @@ const Auth = (props) => {
                 onClick={() => {
                   setSignupModal(true);
                   authModalClose();
-                }}>
+                }}
+              >
                 회원가입
               </li>
               <li
                 onClick={() => {
                   setLoginModal(true);
                   authModalClose();
-                }}>
+                }}
+              >
                 로그인
               </li>
             </AuthList>
