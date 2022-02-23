@@ -7,6 +7,7 @@ import { actionCreators as commentActions } from "../redux/modules/comment";
 import { useParams } from "react-router-dom";
 import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
+import CommentList from "../components/CommentList";
 import DetailMap from "../components/DetailMap";
 
 const Detail = (props) => {
@@ -14,6 +15,7 @@ const Detail = (props) => {
   const params = useParams();
   const _place_id = parseInt(params.placeId);
   const placeInfo = useSelector((state) => state.list.listOne);
+  const comment_data = useSelector((state) => state.comment);
 
   React.useEffect(() => {
     dispatch(listActions.getListDetailDB(_place_id));
@@ -28,6 +30,7 @@ const Detail = (props) => {
         <div className="re-card"></div>
       </div>
       <DetailComment {...placeInfo} />
+      <CommentList {...comment_data} />
       <DetailMap {...placeInfo} />
     </DetailWrapS>
   );
