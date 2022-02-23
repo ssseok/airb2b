@@ -4,13 +4,13 @@ import { Axios } from "axios";
 import { instance } from "../../shared/TEST.JS";
 import { apis } from "../../shared/api";
 
-const SET_COMMENT = "SET_COMMENT";
+const GET_COMMENT = "SET_COMMENT";
 const ADD_COMMENT = "ADD_COMMENT";
 const DELETE_COMMENT = "DELETE_COMMENT";
 
 const LOADING = "LOADING";
 
-const setComment = createAction(SET_COMMENT, (comments) => ({
+const getComment = createAction(GET_COMMENT, (comments) => ({
   comments,
 }));
 const addComment = createAction(ADD_COMMENT, (comment_data) => ({
@@ -31,7 +31,7 @@ const getCommentDB = (placeId) => {
     apis
       .getComment(placeId)
       .then((res) => {
-        console.log(res);
+        dispatch(getComment(res.data.comment));
       })
       .catch((err) => {
         console.log(err);
@@ -42,16 +42,8 @@ const getCommentDB = (placeId) => {
 const addCommentDB = (userNickname, commentContent, placeId) => {
   return function (dispatch, getState, { history }) {
     apis
-      .addComment(
-        userNickname,
-        commentContent,
-        placeId
-        //   {
-        //   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        // }
-      )
+      .addComment(userNickname, commentContent, placeId)
       .then((res) => {
-        console.log(res);
         dispatch(
           addComment({
             userNickname,
@@ -68,7 +60,10 @@ const addCommentDB = (userNickname, commentContent, placeId) => {
 };
 export default handleActions(
   {
-    [SET_COMMENT]: (state, action) => produce(state, (draft) => {}),
+    [GET_COMMENT]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list.push(...action.payload.comments);
+      }),
     [ADD_COMMENT]: (state, action) =>
       produce(state, (draft) => {
         draft.list.unshift(action.payload.comment_data);
@@ -84,7 +79,7 @@ export default handleActions(
 const actionCreators = {
   addCommentDB,
   getCommentDB,
-  setComment,
+  getComment,
   addComment,
 };
 
