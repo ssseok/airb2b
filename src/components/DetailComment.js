@@ -1,19 +1,18 @@
 import React from "react";
 import { Text } from "../common";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 import { useParams } from "react-router-dom";
 
-const DetailComment = ({ rating }) => {
-  //   const { placeId } = useParams();
+const DetailComment = (props) => {
   const dispatch = useDispatch();
-  const [commentContent, setComment] = React.useState("");
-  const [userNickname, setUserNickname] = React.useState("");
-  //   const [placeId, setPlaceid] = React.useState(0);
+  const [commentContent, setCommentContent] = React.useState("");
+  const userNickname = useSelector((state) => state.list);
+  console.log(userNickname);
 
   const cmtOnChange = (e) => {
-    setComment(e.target.value);
+    setCommentContent(e.target.value);
   };
 
   const writeComment = () => {
@@ -23,7 +22,7 @@ const DetailComment = ({ rating }) => {
   return (
     <>
       <Text bold="700" size="18px">
-        {rating} 후기
+        {props.rating} 후기
       </Text>
       <Wrap>
         <Input

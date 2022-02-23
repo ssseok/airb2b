@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DetailTop from "../components/DetailTop";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as listActions } from "../redux/modules/list";
+import { actionCreators as commentActions } from "../redux/modules/comment";
 import { useParams } from "react-router-dom";
 import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
@@ -16,6 +17,7 @@ const Detail = (props) => {
 
   React.useEffect(() => {
     dispatch(listActions.getListDetailDB(_place_id));
+    dispatch(commentActions.getCommentDB(_place_id));
   }, []);
 
   return (

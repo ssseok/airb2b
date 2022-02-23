@@ -40,9 +40,10 @@ export const apis = {
 
   getDetail: (placeId) => instance.get(`api/detail/${placeId}`),
 
+  getComment: (placeId) => instance.get(`api/detail/${placeId}`),
+
   addComment: (userNickname, commentContent, placeId) =>
     instance.post(`api/detail/comments/${placeId}`, {
-      placeId: placeId,
       userNickname: userNickname,
       commentContent: commentContent,
     }),
