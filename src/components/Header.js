@@ -14,7 +14,7 @@ const Header = () => {
   const { pathname } = useLocation();
   const [scroll, setScroll] = React.useState(0);
   const windowOffset = window.pageYOffset;
-
+  console.log(pathname.indexOf("/detail"));
   const mainGo = () => {
     navigate("/");
   };
@@ -28,9 +28,14 @@ const Header = () => {
   return (
     <HeaderS
       className={` ${
-        pathname !== "/" ? "sticky map" : scroll > 54 ? "sticky" : ""
-      }`}
-    >
+        pathname === "/location"
+          ? "sticky map"
+          : pathname.indexOf("/detail") >= 0
+          ? "sticky detail_width"
+          : scroll > 54
+          ? "sticky"
+          : ""
+      }`}>
       <div className="main_header ">
         <a href="#" className="logo" onClick={mainGo}>
           <LogoSvg />
@@ -181,6 +186,16 @@ const HeaderS = styled.header`
           box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px 0px;
         }
       }
+    }
+  }
+
+  &.detail_width {
+    position: static;
+    box-shadow: rgb(0 0 0 / 8%) 0 1px 12px;
+    .main_header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0;
     }
   }
 
