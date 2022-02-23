@@ -9,6 +9,7 @@ import ReactModal from "react-modal";
 const DetailComment = (props) => {
   const dispatch = useDispatch();
   const [commentContent, setCommentContent] = React.useState("");
+
   const Params = useParams();
   const place_id = Params.placeId;
   console.log(place_id);
