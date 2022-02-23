@@ -12,21 +12,25 @@ const DetailComment = (props) => {
 
   const Params = useParams();
   const place_id = Params.placeId;
-  console.log(place_id);
-  const userNickname = localStorage.getItem("userNickname");
+  const userNickname = localStorage.userNickname;
 
   const cmtOnChange = (e) => {
     setCommentContent(e.target.value);
   };
+  const token = localStorage.getItem("token");
 
   const writeComment = () => {
+    if (!token) {
+      alert("로그인 후 이용해주세요!");
+      return;
+    }
     dispatch(
       commentActions.addCommentDB(userNickname, commentContent, place_id)
     );
   };
 
   return (
-    <>
+    <React.Fragment>
       <Text bold="700" size="18px">
         {props.rating} 후기
       </Text>
@@ -39,7 +43,7 @@ const DetailComment = (props) => {
         />
         <Button onClick={writeComment}>작성</Button>
       </Wrap>
-    </>
+    </React.Fragment>
   );
 };
 
@@ -47,7 +51,6 @@ const Wrap = styled.div`
   display: flex;
   margin: 0px 50px 20px 0px;
 `;
-
 const Input = styled.input`
   border: 1px solid #212121;
   width: 60%;

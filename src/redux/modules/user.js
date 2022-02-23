@@ -13,10 +13,6 @@ const logIn = createAction(LOG_IN, (user) => ({ user }));
 const logOut = createAction(LOG_OUT, (user) => ({ user }));
 
 const initialState = {
-  userEmail: null,
-  userNickname: null,
-  password: null,
-  passwordConfirm: null,
   is_login: false,
   list: [],
 };
@@ -48,7 +44,6 @@ const signUpDB = (userEmail, userNickname, password, passwordConfirm) => {
     apis
       .signup(userEmail, userNickname, password, passwordConfirm)
       .then((res) => {
-        // dispatch(setUser(userEmail, userNickname, password, passwordConfirm));
         const modal = getState().modal.is_open;
         console.log(modal);
         console.log(res.data.ok);
@@ -69,7 +64,6 @@ const signUpDB = (userEmail, userNickname, password, passwordConfirm) => {
 
 const logOutDB = () => {
   return function (dispatch, getState, { history }) {
-    localStorage.removeItem("token");
     dispatch(logOut());
     history.replace("/");
   };
@@ -88,8 +82,7 @@ export default handleActions(
       }),
     [LOG_OUT]: (state, action) =>
       produce(state, (draft) => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("userNickname");
+
         draft.is_login = false;
       }),
   },
