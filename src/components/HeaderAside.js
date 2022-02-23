@@ -4,7 +4,6 @@ import { useLocation } from "react-router";
 
 const HeaderAside = (props) => {
   const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <React.Fragment>
       {pathname === "/" && (
