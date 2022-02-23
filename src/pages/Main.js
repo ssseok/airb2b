@@ -25,14 +25,19 @@ const Main = () => {
             <Image
               br="15px 15px 0px 0px"
               shape="rectangle"
-              height="200px"
+              height="250px"
               src="https://a0.muscache.com/im/pictures/19d4c139-3615-4440-b5e3-55ee3f87e240.jpg?im_w=320"
             />
             <Localname bg="#BC196D">
-              <Text color="white" bold="600" size="23px" margin="20px 10px">
+              <Text
+                color="white"
+                bold="600"
+                size="35px"
+                margin="20px 16px 16px"
+              >
                 서울
               </Text>
-              <Text color="white" size="15px" margin="0px 10px">
+              <Text color="white" size="20px" margin="0px 16px">
                 2km 거리
               </Text>
             </Localname>
@@ -42,14 +47,19 @@ const Main = () => {
             <Image
               br="15px 15px 0px 0px"
               shape="rectangle"
-              height="200px"
+              height="250px"
               src="https://a0.muscache.com/im/pictures/241d2e75-21ed-4b13-bf46-673baf1abc69.jpg?im_w=480"
             />
             <Localname bg="#D93A30">
-              <Text color="white" bold="600" size="23px" margin="20px 10px">
+              <Text
+                color="white"
+                bold="600"
+                size="35px"
+                margin="20px 16px 16px"
+              >
                 인천
               </Text>
-              <Text color="white" size="15px" margin="0px 10px">
+              <Text color="white" size="20px" margin="0px 16px">
                 29km 거리
               </Text>
             </Localname>
@@ -59,14 +69,19 @@ const Main = () => {
             <Image
               br="15px 15px 0px 0px"
               shape="rectangle"
-              height="200px"
+              height="250px"
               src="https://a0.muscache.com/im/pictures/1e5fc501-e1ed-4de4-be9f-811e9de0a0d2.jpg?im_w=320"
             />
             <Localname bg="#CC2D4A">
-              <Text color="white" bold="600" size="23px" margin="20px 10px">
+              <Text
+                color="white"
+                bold="600"
+                size="35px"
+                margin="20px 16px 16px"
+              >
                 대구
               </Text>
-              <Text color="white" size="15px" margin="0px 10px">
+              <Text color="white" size="20px" margin="0px 16px">
                 237km 거리
               </Text>
             </Localname>
@@ -77,14 +92,19 @@ const Main = () => {
               br="15px 15px 0px 0px"
               shape="rectangle"
               weight="300px"
-              height="200px"
+              height="250px"
               src="https://a0.muscache.com/im/pictures/ee86b8d6-b214-43f5-912c-3db2637a5724.jpg?im_w=320"
             />
             <Localname bg="#DD3150">
-              <Text color="white" bold="600" size="23px" margin="20px 10px">
+              <Text
+                color="white"
+                bold="600"
+                size="35px"
+                margin="20px 16px 16px"
+              >
                 대전
               </Text>
-              <Text color="white" size="15px" margin="0px 10px">
+              <Text color="white" size="20px" margin="0px 16px">
                 140km 거리
               </Text>
             </Localname>
@@ -104,7 +124,8 @@ const Main = () => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff">
+                  color="#fff"
+                >
                   여행 중 만나는 <br />
                   이색적인 즐길 거리
                 </Text>
@@ -113,7 +134,8 @@ const Main = () => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px">
+                  borderRadius="8px"
+                >
                   체험
                 </Button>
               </TwoImg>
@@ -125,7 +147,8 @@ const Main = () => {
                   size="34px"
                   bold="600"
                   padding="0 0 24px 0"
-                  color="#fff">
+                  color="#fff"
+                >
                   집에서 만나는 <br />
                   다양한 즐길 거리
                 </Text>
@@ -134,7 +157,8 @@ const Main = () => {
                   color="black"
                   width="auto"
                   padding="14px 20px"
-                  borderRadius="8px">
+                  borderRadius="8px"
+                >
                   온라인 체험
                 </Button>
               </TwoImg>
@@ -172,7 +196,7 @@ const Card = styled.div`
 const Localname = styled.div`
   background-color: ${(props) => props.bg};
   border-radius: 0px 0px 15px 15px;
-  height: 200px;
+  height: 250px;
   width: 100%;
 `;
 
