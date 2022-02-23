@@ -11,23 +11,30 @@ const DetailMap = (props) => {
   };
 
   return (
-    <div className="mapmap" style={{ height: "480px" }}>
-      <GoogleMap
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
-        center={defaultProps}
-        defaultZoom={14}
-        // onChildMouseLeave={this.onChildMouseLeave}
-        // onChildMouseEnter={this.onChildMouseEnter}
-      >
-        <DetailMarker lat={props.lat} lng={props.lng} />
-      </GoogleMap>
-    </div>
+    <MapWrapS>
+      <h2>호스팅 지역</h2>
+      <div className="mapmap" style={{ height: "480px" }}>
+        <GoogleMap
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
+          center={defaultProps}
+          defaultZoom={14}
+          // onChildMouseLeave={this.onChildMouseLeave}
+          // onChildMouseEnter={this.onChildMouseEnter}
+        >
+          <DetailMarker lat={props.lat} lng={props.lng} />
+        </GoogleMap>
+      </div>
+    </MapWrapS>
   );
 };
 
 const MapWrapS = styled.div`
-  width: 100%;
-  height: 400px;
+  padding: 48px 0;
+  border-top: solid 1px #ebebeb;
+  h2 {
+    font-size: 22px;
+    padding-bottom: 24px;
+  }
 `;
 
 export default DetailMap;
