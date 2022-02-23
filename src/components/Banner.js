@@ -13,13 +13,12 @@ const Banner = (props) => {
                 에어비앤비가 <br /> 여행지를 찾아드릴게요!
               </Text>
               <Button
-                margin="20px 0px 80px 160px"
-                padding=""
-                width="30%"
+                margin="40px 0px 90px 160px"
+                width="35%"
                 color="222222"
                 borderRadiuss="40px"
               >
-                유연한 검색
+                <BannerSpn>유연한 검색</BannerSpn>
               </Button>
             </div>
           </ImageWrap>
@@ -33,6 +32,15 @@ export default Banner;
 
 const BannerWrap = styled.div`
   background-color: #000;
+`;
+
+const BannerSpn = styled.span`
+  background: linear-gradient(90deg, #6f019c 0%, #c6017e 135.12%);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
 `;
 
 const BackWrap = styled.div`
