@@ -12,8 +12,7 @@ const Map = (props) => {
       <GoogleMap
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
         defaultCenter={props.center}
-        defaultZoom={props.zoom}
-      >
+        defaultZoom={props.zoom}>
         {roomList.map((v, idx) => {
           return <Marker key={idx} lat={v.lat} lng={v.lng} info={v} />;
         })}

@@ -4,8 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Pagination } from "@mui/material";
-import { ReactComponent as LikeSvg } from "../svg/like_it_defualt.svg";
-import { ReactComponent as LikeActiveSvg } from "../svg/like_it_active.svg";
 import { useNavigate } from "react-router-dom";
 import LikeIt from "./LikeIt";
 
@@ -28,7 +26,7 @@ const RoomList = (props) => {
     <React.Fragment>
       <RoomListsDiv className="room_list">
         <div className="header">
-          <span>서울에 위치한 300개 이상의 숙소</span>
+          <span>서울에 위치한 300개 이상의 숙소 </span>
           <div className="corona">
             <span>
               예약하기 전에 코로나19 관련 여행 제한 사항을 확인하세요.
@@ -42,8 +40,7 @@ const RoomList = (props) => {
               key={idx}
               onClick={() => {
                 placeMove(v.placeId);
-              }}
-            >
+              }}>
               <ImgSlide className="image">
                 <Slider {...settings}>
                   <div className="img_wrap">
