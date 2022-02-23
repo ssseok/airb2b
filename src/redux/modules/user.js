@@ -18,6 +18,7 @@ const initialState = {
   password: null,
   passwordConfirm: null,
   is_login: false,
+  list: [],
 };
 
 const logInDB = (userEmail, password) => {
@@ -30,8 +31,9 @@ const logInDB = (userEmail, password) => {
           window.alert(res.data.errorMessage);
           return;
         }
-        dispatch(logIn(userEmail, password));
+        dispatch(logIn(res.data));
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userNickname", res.data.userNickname);
         history.replace("/");
       })
       .catch((err) => {
@@ -81,7 +83,7 @@ export default handleActions(
       }),
     [LOG_IN]: (state, action) =>
       produce(state, (draft) => {
-        draft.user = action.payload.user;
+        draft.list = action.payload.user;
         draft.is_login = true;
       }),
     [LOG_OUT]: (state, action) =>
