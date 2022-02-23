@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 const DetailText = (props) => {
-  console.log(props);
-
   const _desc = props.description?.split("*");
 
   return (
@@ -105,6 +103,7 @@ const DetailText = (props) => {
   );
 };
 const DescriptionS = styled.div`
+  width: 58.333333333333336%;
   font-size: 16px;
   color: #222;
 
