@@ -33,7 +33,6 @@ const getListDetailDB = (placeId) => {
     apis
       .getDetail(placeId)
       .then((res) => {
-        console.log(res);
         dispatch(getListDetail(res.data.place));
       })
       .catch((err) => {
