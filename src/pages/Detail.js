@@ -1,22 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DetailList from "../components/DetailList";
-import { actionCreators as listAction } from "../redux/modules/list";
+import { actionCreators as listActions } from "../redux/modules/list";
+import { useParams } from "react-router-dom";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
-  const room_list = useSelector((state) => state.list);
-  console.log(room_list);
+  const params = useParams();
+  const _place_id = parseInt(params.placeId);
 
   React.useEffect(() => {
-    dispatch(listAction.getListDB(1));
+    dispatch(listActions.getListDetailDB(_place_id));
   }, []);
 
-  return (
-    <>
-      <DetailList {...room_list} />
-    </>
-  );
+  return <>{/* <DetailList /> */}</>;
 };
 
 export default Detail;
