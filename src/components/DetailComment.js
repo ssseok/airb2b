@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 const DetailComment = (props) => {
   const dispatch = useDispatch();
   const [commentContent, setCommentContent] = React.useState("");
-  const userNickname = useSelector((state) => state.list);
+  const userNickname = useSelector((state) => state.user);
   console.log(userNickname);
 
   const cmtOnChange = (e) => {
