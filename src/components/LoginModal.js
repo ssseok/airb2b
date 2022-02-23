@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import { PaddingBox, Text } from "../common";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 
 Modal.setAppElement("#root");

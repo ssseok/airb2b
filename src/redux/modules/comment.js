@@ -13,20 +13,16 @@ const LOADING = "LOADING";
 const setComment = createAction(SET_COMMENT, (comments) => ({
   comments,
 }));
-const addComment = createAction(
-  ADD_COMMENT,
-  (userNickname, commentContent) => ({
-    userNickname,
-    commentContent,
-  })
-);
+const addComment = createAction(ADD_COMMENT, (comment_data) => ({
+  comment_data,
+}));
 
 const delComment = createAction(DELETE_COMMENT, (commentId) => ({ commentId }));
 
 const loading = createAction(LOADING, (is_loading) => ({ is_loading }));
 
 const initialState = {
-  list: {},
+  list: [],
   is_loading: false,
 };
 
@@ -43,25 +39,26 @@ const getCommentDB = (placeId) => {
   };
 };
 
-const addCommentDB = (placeId, userNickname, commentContent) => {
+const addCommentDB = (userNickname, commentContent, placeId) => {
   return function (dispatch, getState, { history }) {
-    const token = localStorage.getItem("token");
-    console.log(token);
-    const data = {
-      userNickname: userNickname,
-      commentContent: commentContent,
-    };
-    console.log(data);
     apis
       .addComment(
         userNickname,
-        commentContent
-        //    {
-        //   headers: { Authorization: "Bearer " + token },
+        commentContent,
+        placeId
+        //   {
+        //   headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         // }
       )
       .then((res) => {
-        dispatch(addComment(res.data));
+        console.log(res);
+        dispatch(
+          addComment({
+            userNickname,
+            commentContent,
+            commentId: res.data.commentId,
+          })
+        );
       })
       .catch((err) => {
         console.log("nonono");
@@ -74,7 +71,7 @@ export default handleActions(
     [SET_COMMENT]: (state, action) => produce(state, (draft) => {}),
     [ADD_COMMENT]: (state, action) =>
       produce(state, (draft) => {
-        draft.list.unshift(action.payload.commentContent);
+        draft.list.unshift(action.payload.comment_data);
       }),
     [LOADING]: (state, action) =>
       produce(state, (draft) => {

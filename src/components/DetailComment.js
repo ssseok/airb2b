@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text } from "../common";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 import { useParams } from "react-router-dom";
+import ReactModal from "react-modal";
 
 const DetailComment = (props) => {
   const dispatch = useDispatch();
   const [commentContent, setCommentContent] = React.useState("");
-  const userNickname = useSelector((state) => state.user);
-  console.log(userNickname);
+
+  const Params = useParams();
+  const place_id = Params.placeId;
+  console.log(place_id);
+  const userNickname = localStorage.getItem("userNickname");
 
   const cmtOnChange = (e) => {
     setCommentContent(e.target.value);
   };
 
   const writeComment = () => {
-    dispatch(commentActions.addCommentDB(userNickname, commentContent));
+    dispatch(
+      commentActions.addCommentDB(userNickname, commentContent, place_id)
+    );
   };
 
   return (

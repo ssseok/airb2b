@@ -14,7 +14,6 @@ const Header = () => {
   const { pathname } = useLocation();
   const [scroll, setScroll] = React.useState(0);
   const windowOffset = window.pageYOffset;
-  console.log(pathname.indexOf("/detail"));
   const mainGo = () => {
     navigate("/");
   };
@@ -35,7 +34,8 @@ const Header = () => {
           : scroll > 54
           ? "sticky"
           : ""
-      }`}>
+      }`}
+    >
       <div className="main_header ">
         <a href="#" className="logo" onClick={mainGo}>
           <LogoSvg />
