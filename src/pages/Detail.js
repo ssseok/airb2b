@@ -49,7 +49,6 @@ const DetailWrapS = styled.div`
   .flex_wrap {
     display: flex;
   }
-
   .re-card {
     width: 33.33333333333333%;
     margin-left: 8.333333333333332%;
