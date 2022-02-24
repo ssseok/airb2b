@@ -38,11 +38,7 @@ const RoomList = (props) => {
         </div>
         <RoomListUl>
           {props.list.map((v, idx) => (
-            <li
-              key={idx}
-              onClick={() => {
-                placeMove(v.placeId);
-              }}>
+            <li key={idx}>
               <ImgSlide className="image">
                 <Slider {...settings}>
                   <div className="img_wrap">
@@ -62,7 +58,11 @@ const RoomList = (props) => {
                   </div>
                 </Slider>
               </ImgSlide>
-              <div className="content">
+              <div
+                className="content"
+                onClick={() => {
+                  placeMove(v.placeId);
+                }}>
                 <dl className="title">
                   <dt>
                     <span>{v.subtitle}</span>
