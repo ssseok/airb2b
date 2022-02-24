@@ -5,7 +5,7 @@
 ## 🤷 프로젝트 소개
 
  <p> Airbnb 클론코딩 </p>
-Web Site :
+Web Site : http://durukim.s3-website.ap-northeast-2.amazonaws.com/#
 </br>
 
 ## 🎥 시연 영상
@@ -43,10 +43,10 @@ https://www.notion.so/4878cf7d1654460496d760f6c0987f4e?v=5400aefc1bc746b189549e1
 
 <code> Front-end </code>
 
-- React
-- JavaScript
-- CSS
-- Axios
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
+<img src="https://img.shields.io/badge/Axios-181717?style=for-the-badge&logo=github&logoColor=white">
 
 <code> Back-end </code>
 
@@ -54,13 +54,14 @@ https://www.notion.so/4878cf7d1654460496d760f6c0987f4e?v=5400aefc1bc746b189549e1
 
 <code>Tool</code>
 
-- Git
-- GitHub
+<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+<img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
 
 ## ⚒️ 3조 와이어 프레임 ⚒️
 
 </details>
  <summary>자세히 보기</summary>
+ https://www.notion.so/99-3-81b039bf7fcb4ccfb9d1f13c073757f4
  </details>
 
 ## ✌🏻 개인 역할 및 트러블슈팅 해결과정
@@ -71,7 +72,7 @@ https://www.notion.so/4878cf7d1654460496d760f6c0987f4e?v=5400aefc1bc746b189549e1
 
 <code>정재연</code>
 
-<code>Trouble Shooting</code>[트러블 슈팅 해결과정]()
+<code>Trouble Shooting</code>[트러블 슈팅 해결과정](https://www.notion.so/201f7b41520f4b05959d3e45c519398e)
 
 </br>
 
