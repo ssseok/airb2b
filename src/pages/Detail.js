@@ -9,7 +9,6 @@ import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
 import CommentList from "../components/CommentList";
 import DetailMap from "../components/DetailMap";
-import CommentList from "../components/CommentList";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
