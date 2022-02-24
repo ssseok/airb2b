@@ -10,7 +10,7 @@ Web Site : http://durukim.s3-website.ap-northeast-2.amazonaws.com/#
 
 ## 🎥 시연 영상
 
-[![Hnet-image](https://www.youtube.com/watch?v=FKEtQQn_JbE)](https://www.youtube.com/watch?v=FKEtQQn_JbE)<br>
+[![Hnet-image](C:\Users\seokb\Desktop\에어비앤비동영상2.gif)](https://www.youtube.com/watch?v=FKEtQQn_JbE)<br>
 이미지를 클릭하시면 유튜브 영상으로 이동됩니다.
 
 ## 🧑🏼‍💻 개발기간 및 팀원소개
