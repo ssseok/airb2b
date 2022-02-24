@@ -67,6 +67,7 @@ const DeleteBtn = styled.button`
   margin-left: auto;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 `;
 
 export default CommentItem;

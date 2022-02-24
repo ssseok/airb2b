@@ -9,6 +9,7 @@ import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
 import CommentList from "../components/CommentList";
 import DetailMap from "../components/DetailMap";
+import ReservCard from "../components/ReservCard";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
@@ -29,7 +30,9 @@ const Detail = (props) => {
       <DetailTop {...placeInfo} />
       <div className="flex_wrap">
         <DetailText {...placeInfo} />
-        <div className="re-card"></div>
+        <div className="re-card">
+          <ReservCard />
+        </div>
       </div>
       <div className="comment_list">
         <DetailComment {...placeInfo} />
