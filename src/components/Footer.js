@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <FooterWrap>
-      <div>
+      <div className="footer_wrap">
         <section>
           <div>
             <h3>에어비앤비 지원</h3>
@@ -94,15 +94,20 @@ const Footer = () => {
             </li>
           </ul>
         </section>
-        <div className="img_wrap">
-          <img src="./img/footer.png" />
-        </div>
+      </div>
+      <div className="img_wrap">
+        <img src="./img/footer.png" />
       </div>
     </FooterWrap>
   );
 };
 const FooterWrap = styled.div`
   background-color: #f7f7f7;
+
+  .footer_wrap {
+    display: flex;
+    border-bottom: 1px solid rgb(221, 221, 221);
+  }
 
   > div {
     max-width: calc(min(1760px, 100%) - 160px);
@@ -113,23 +118,14 @@ const FooterWrap = styled.div`
   }
 
   section {
-    border-bottom: 1px solid rgb(221, 221, 221);
-    padding-bottom: 24px;
-    margin-bottom: 24px;
+    flex: 1;
 
     div {
       font-weight: bold;
     }
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -12px;
-  }
-
   li {
-    padding: 0 12px;
     margin-top: 12px;
     flex-basis: 33.3333%;
     cursor: pointer;
