@@ -13,7 +13,7 @@ const DetailTop = (props) => {
           <i className="star"></i>
           <Text>{props.rating}</Text>·
           <Text margin="0px 3px" deco>
-            후기 {props.comment_Cnt}개
+            후기 {props.list.length}개
           </Text>
           ·
           <Text margin="0px 3px" deco color="#696969">

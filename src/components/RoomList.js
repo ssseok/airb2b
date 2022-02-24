@@ -5,10 +5,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+
 import LikeIt from "./LikeIt";
 
 const RoomList = (props) => {
   const navigate = useNavigate();
+
   const settings = {
     dots: true,
     arrows: true,

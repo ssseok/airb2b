@@ -8,6 +8,8 @@ import Map from "../components/Map";
 function Seoul() {
   const dispatch = useDispatch();
   const room_list = useSelector((state) => state.list);
+  const comment_data = useSelector((state) => state.comment);
+
   React.useEffect(() => {
     dispatch(listAction.getListDB(1));
   }, []);

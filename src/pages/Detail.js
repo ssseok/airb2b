@@ -27,7 +27,7 @@ const Detail = (props) => {
 
   return (
     <DetailWrapS>
-      <DetailTop {...placeInfo} />
+      <DetailTop {...placeInfo} {...comment_data} />
       <div className="flex_wrap">
         <DetailText {...placeInfo} />
         <div className="re-card">

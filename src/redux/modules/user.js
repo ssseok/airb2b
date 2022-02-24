@@ -35,9 +35,20 @@ const logInDB = (userEmail, password) => {
               popup: "animate__animated animate__fadeOutUp",
             },
           });
-
           return;
         }
+
+        Swal.fire({
+          title: `${res.data.userNickname}님 반갑습니다.`,
+          icon: "success",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+
         dispatch(setUser(res.data));
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userNickname", res.data.userNickname);
