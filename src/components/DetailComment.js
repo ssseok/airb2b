@@ -27,6 +27,7 @@ const DetailComment = (props) => {
     dispatch(
       commentActions.addCommentDB(userNickname, commentContent, place_id)
     );
+    setCommentContent("");
   };
 
   return (
@@ -53,8 +54,9 @@ const DetailComment = (props) => {
 
 const Wrap = styled.div`
   display: flex;
-  margin: 0px 50px 20px 0px;
+  margin: 0px 0px 20px 0px;
 `;
+
 const Input = styled.input`
   flex: auto;
   width: 60%;

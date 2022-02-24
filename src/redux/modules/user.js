@@ -4,12 +4,10 @@ import { apis } from "../../shared/api";
 import axios from "axios";
 import { history } from "../../App";
 
-const LOG_IN = "LOG_IN";
 const SET_USER = "SET_USER";
 const LOG_OUT = "LOG_OUT";
 
 const setUser = createAction(SET_USER, (user) => ({ user }));
-const logIn = createAction(LOG_IN, (user) => ({ user }));
 const logOut = createAction(LOG_OUT, (user) => ({ user }));
 
 const initialState = {
@@ -27,7 +25,7 @@ const logInDB = (userEmail, password) => {
           window.alert(res.data.errorMessage);
           return;
         }
-        dispatch(logIn(res.data));
+        dispatch(setUser(res.data));
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userNickname", res.data.userNickname);
         history.replace("/");
@@ -35,6 +33,33 @@ const logInDB = (userEmail, password) => {
       .catch((err) => {
         alert(err.response);
         console.log(err.response);
+      });
+  };
+};
+
+const loginCheckDB = () => {
+  const token = localStorage.getItem("token");
+  return function (dispatch, getState, { history }) {
+    axios({
+      method: "get",
+      url: "http://3.34.130.88/api/users/me",
+      headers: {
+        "content-type": "application/json;charset=UTF-8",
+        accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+
+        dispatch(
+          setUser({
+            userNickname: res.data.userNickname,
+          })
+        );
+      })
+      .catch((err) => {
+        console.log("로그인 확인 실패", err);
       });
   };
 };
@@ -74,10 +99,6 @@ export default handleActions(
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
         draft.user = action.payload.user;
-      }),
-    [LOG_IN]: (state, action) =>
-      produce(state, (draft) => {
-        draft.list = action.payload.user;
         draft.is_login = true;
       }),
     [LOG_OUT]: (state, action) =>
@@ -90,12 +111,12 @@ export default handleActions(
 );
 
 const actionCreators = {
-  logIn,
   logOut,
   setUser,
   signUpDB,
   logInDB,
   logOutDB,
+  loginCheckDB,
 };
 
 export { actionCreators };

@@ -14,6 +14,7 @@ const Detail = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
   const _place_id = parseInt(params.placeId);
+  console.log(_place_id);
   const placeInfo = useSelector((state) => state.list.listOne);
 
   const comment_data = useSelector((state) => state.comment);
@@ -32,7 +33,6 @@ const Detail = (props) => {
       </div>
       <div className="comment_list">
         <DetailComment {...placeInfo} />
-
         <CommentList {...comment_data} />
       </div>
       <DetailMap {...placeInfo} />
