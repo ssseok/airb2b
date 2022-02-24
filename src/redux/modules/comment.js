@@ -4,13 +4,11 @@ import { Axios } from "axios";
 import { instance } from "../../shared/TEST.JS";
 import { apis } from "../../shared/api";
 
-
 const GET_COMMENT = "SET_COMMENT";
 const ADD_COMMENT = "ADD_COMMENT";
 const DELETE_COMMENT = "DELETE_COMMENT";
 
 const LOADING = "LOADING";
-
 
 const getComment = createAction(GET_COMMENT, (comments) => ({
   comments,
@@ -33,9 +31,7 @@ const getCommentDB = (placeId) => {
     apis
       .getComment(placeId)
       .then((res) => {
-
         dispatch(getComment(res.data.comment));
-
       })
       .catch((err) => {
         console.log(err);
@@ -57,14 +53,12 @@ const addCommentDB = (userNickname, commentContent, placeId) => {
         );
       })
       .catch((err) => {
-        console.log("nonono");
         console.log(err);
       });
   };
 };
 export default handleActions(
   {
-
     [GET_COMMENT]: (state, action) =>
       produce(state, (draft) => {
         draft.list.push(...action.payload.comments);
