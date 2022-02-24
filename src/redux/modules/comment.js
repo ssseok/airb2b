@@ -1,11 +1,12 @@
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 import { apis } from "../../shared/api";
+import "animate.css";
+import Swal from "sweetalert2";
 
 const GET_COMMENT = "SET_COMMENT";
 const ADD_COMMENT = "ADD_COMMENT";
 const DELETE_COMMENT = "DELETE_COMMENT";
-
 
 const LOADING = "LOADING";
 
@@ -61,7 +62,17 @@ const deleteCommentDB = (commentId) => {
     apis.deleteComment(commentId).then((res) => {
       dispatch(deleteComment(commentId));
       console.log(res);
-      window.alert("삭제가 완료되었습니다.");
+      // window.alert("삭제가 완료되었습니다.");
+      Swal.fire({
+        title: "삭제가 완료되었습니다😊",
+        icon: "success",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
       // window.location.reload();
     });
   };

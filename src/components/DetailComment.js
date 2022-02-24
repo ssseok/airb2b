@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 import { useParams } from "react-router-dom";
 import ReactModal from "react-modal";
+import "animate.css";
+import Swal from "sweetalert2";
 
 const DetailComment = (props) => {
   const dispatch = useDispatch();
@@ -21,7 +23,16 @@ const DetailComment = (props) => {
 
   const writeComment = () => {
     if (!token) {
-      alert("로그인 후 이용해주세요!");
+      Swal.fire({
+        title: "로그인 후 이용해주세요😊",
+        icon: "warning",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
       return;
     }
     dispatch(

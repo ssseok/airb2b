@@ -3,6 +3,8 @@ import { produce } from "immer";
 import { apis } from "../../shared/api";
 import axios from "axios";
 import { history } from "../../App";
+import "animate.css";
+import Swal from "sweetalert2";
 
 const SET_USER = "SET_USER";
 const LOG_OUT = "LOG_OUT";
@@ -22,7 +24,18 @@ const logInDB = (userEmail, password) => {
       .then((res) => {
         console.log(res);
         if (!res.data.ok) {
-          window.alert(res.data.errorMessage);
+          // window.alert(res.data.errorMessage);
+          Swal.fire({
+            title: "로그인에 실패하셨습니다😨",
+            icon: "error",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+
           return;
         }
         dispatch(setUser(res.data));
@@ -73,10 +86,30 @@ const signUpDB = (userEmail, userNickname, password, passwordConfirm) => {
         console.log(modal);
         console.log(res.data.ok);
         if (!res.data.ok) {
-          window.alert(res.data.errorMessage);
+          // window.alert(res.data.errorMessage);
+          Swal.fire({
+            title: "빠진 항목이 있나 확인 해주세요😊",
+            icon: "warning",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
           return;
         }
-        window.alert("회원가입이 완료되었습니다!");
+        // window.alert("회원가입이 완료되었습니다!");
+        Swal.fire({
+          title: "회원가입이 완료되었습니다😊",
+          icon: "success",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
         history.replace("/");
         console.log(res);
       })
@@ -103,7 +136,6 @@ export default handleActions(
       }),
     [LOG_OUT]: (state, action) =>
       produce(state, (draft) => {
-
         draft.is_login = false;
       }),
   },
