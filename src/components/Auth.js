@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { useLocation } from "react-router";
 import { ReactComponent as HamSvg } from "../svg/ham.svg";
 import { ReactComponent as UserSvg } from "../svg/user.svg";
 import LoginModal from "./LoginModal";
@@ -11,7 +12,11 @@ const Auth = (props) => {
   const [authModal, setAuthModal] = React.useState(false);
   const [loginModal, setLoginModal] = React.useState(false);
   const [signupModal, setSignupModal] = React.useState(false);
+  const [scroll, setScroll] = React.useState(0);
+  const windowOffset = window.pageYOffset;
   const token = localStorage.getItem("token");
+  const { pathname } = useLocation();
+
   const authModalClose = () => {
     setAuthModal(false);
   };
@@ -24,6 +29,12 @@ const Auth = (props) => {
     setLoginModal(false);
     setSignupModal(false);
   };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.pageYOffset);
+    });
+  }, [setScroll, windowOffset]);
 
   return (
     <React.Fragment>
@@ -44,17 +55,25 @@ const Auth = (props) => {
             overlay: {
               position: "fixed",
               top: 0,
-              left: 0,
+              left: "50%",
               right: 0,
               bottom: 0,
+              width: `${
+                pathname === "/location"
+                  ? "100%"
+                  : pathname.indexOf("/detail") >= 0
+                  ? "1120px"
+                  : "calc(min(1760px,100%) - 160px)"
+              }`,
               backgroundColor: "transparent",
               zIndex: "20",
+              transform: " translateX(-50%)",
             },
             content: {
               position: "absolute",
-              top: "80px",
+              top: `${pathname === "/" && scroll < 54 ? "133px" : "80px"}`,
               left: "calc(100vw-250px)",
-              right: "40px",
+              right: `${pathname === "/location" ? "24px" : "0"}`,
               bottom: "auto",
               overflow: "auto",
               width: "250px",
