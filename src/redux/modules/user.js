@@ -88,7 +88,8 @@ const signUpDB = (userEmail, userNickname, password, passwordConfirm) => {
         if (!res.data.ok) {
           // window.alert(res.data.errorMessage);
           Swal.fire({
-            title: "빠진 항목이 있나 확인 해주세요😊",
+            // title: "빠진 항목이 있나 확인 해주세요😊",
+            title: res.data.errorMessage,
             icon: "warning",
             showClass: {
               popup: "animate__animated animate__fadeInDown",
