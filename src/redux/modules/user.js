@@ -103,6 +103,7 @@ export default handleActions(
       }),
     [LOG_OUT]: (state, action) =>
       produce(state, (draft) => {
+
         draft.is_login = false;
       }),
   },

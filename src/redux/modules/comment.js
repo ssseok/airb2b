@@ -2,9 +2,14 @@ import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 import { apis } from "../../shared/api";
 
+
 const GET_COMMENT = "SET_COMMENT";
 const ADD_COMMENT = "ADD_COMMENT";
 const DELETE_COMMENT = "DELETE_COMMENT";
+
+
+const LOADING = "LOADING";
+
 
 const getComment = createAction(GET_COMMENT, (comments) => ({
   comments,
@@ -26,8 +31,9 @@ const getCommentDB = (placeId) => {
     apis
       .getComment(placeId)
       .then((res) => {
-        console.log(res);
+
         dispatch(getComment(res.data.comment));
+
       })
       .catch((err) => {
         console.log(err);
@@ -68,6 +74,7 @@ const deleteCommentDB = (commentId) => {
 
 export default handleActions(
   {
+
     [GET_COMMENT]: (state, action) =>
       produce(state, (draft) => {
         draft.list = action.payload.comments;
