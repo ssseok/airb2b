@@ -47,4 +47,7 @@ export const apis = {
       userNickname: userNickname,
       commentContent: commentContent,
     }),
+
+  deleteComment: (commentId) =>
+    instance.delete(`api/detail/comments/${commentId}`),
 };
