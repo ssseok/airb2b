@@ -10,7 +10,7 @@ Web Site : http://durukim.s3-website.ap-northeast-2.amazonaws.com/#
 
 ## 🎥 시연 영상
 
-[![Hnet-image](C:\Users\seokb\Desktop\에어비앤비동영상2.gif)](https://www.youtube.com/watch?v=FKEtQQn_JbE)<br>
+[![Hnet-image](https://cdn.notefolio.net/img/d6/3f/d63fc54819cd3fb0c319021e2e7cd6bfee951e8ce2db9e948bd828f538272da6_v1.jpg)](https://www.youtube.com/watch?v=FKEtQQn_JbE)<br>
 이미지를 클릭하시면 유튜브 영상으로 이동됩니다.
 
 ## 🧑🏼‍💻 개발기간 및 팀원소개
@@ -66,7 +66,7 @@ https://www.notion.so/99-3-81b039bf7fcb4ccfb9d1f13c073757f4
 
 ## ✌🏻 개인 역할 및 트러블슈팅 해결과정
 
-<code>박현석</code> 로그인, 댓글, 알림모달창
+<code>박현석</code> 로그인, 댓글, 알림모달창, 메인페이지
 
 <code>김두루</code> 회원가입, 메인페이지, 로케이션페이지, 디테일페이지, 지도API
 
