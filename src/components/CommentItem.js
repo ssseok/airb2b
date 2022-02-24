@@ -29,7 +29,8 @@ const CommentItem = (props) => {
           <DeleteBtn
             onClick={() => {
               dispatch(commentActions.deleteCommentDB(commentId));
-            }}>
+            }}
+          >
             <img src="/img/delete.png" />
           </DeleteBtn>
         )}

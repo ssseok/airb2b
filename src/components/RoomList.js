@@ -62,7 +62,8 @@ const RoomList = (props) => {
                 className="content"
                 onClick={() => {
                   placeMove(v.placeId);
-                }}>
+                }}
+              >
                 <dl className="title">
                   <dt>
                     <span>{v.subtitle}</span>

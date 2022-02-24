@@ -9,7 +9,8 @@ const LikeIt = () => {
     <div
       onClick={() => {
         setIsLike(!isLike);
-      }}>
+      }}
+    >
       {isLike ? <LikeActiveSvg /> : <LikeSvg />}
     </div>
   );

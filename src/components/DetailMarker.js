@@ -11,7 +11,8 @@ const DetailMarker = () => {
         <LightTooltip
           placement="top"
           arrow
-          title="정확한 위치는 예약 완료후에 표시됩니다.">
+          title="정확한 위치는 예약 완료후에 표시됩니다."
+        >
           <div className="svg_wrap">
             <LogoSvg className="logo" />
             <MdHome className="home" />
