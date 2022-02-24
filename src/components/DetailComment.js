@@ -34,6 +34,18 @@ const DetailComment = (props) => {
         },
       });
       return;
+    } else if (!commentContent) {
+      Swal.fire({
+        title: "댓글을 입력해주세요 😊",
+        icon: "warning",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      return;
     }
     dispatch(
       commentActions.addCommentDB(userNickname, commentContent, place_id)
