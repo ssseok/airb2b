@@ -31,7 +31,11 @@ const DetailComment = (props) => {
 
   return (
     <React.Fragment>
-      <Text bold="700" size="18px">
+      <Text bold="700" size="16px" padding="0 0 32px" is_flex>
+        <img
+          style={{ width: "14px", height: "14px", marginRight: "4px" }}
+          src="/img/star.png"
+        />
         {props.rating} 후기
       </Text>
       <Wrap>
@@ -52,10 +56,11 @@ const Wrap = styled.div`
   margin: 0px 50px 20px 0px;
 `;
 const Input = styled.input`
-  border: 1px solid #212121;
+  flex: auto;
   width: 60%;
-  padding: 12px 4px;
-  border-radius: 10px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  border: 1px solid #ebebeb;
   box-sizing: border-box;
 `;
 
@@ -63,10 +68,14 @@ const Button = styled.button`
   background-color: #ff385c;
   color: #ffffff;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   width: 100px;
   margin: 0px 10px;
   cursor: pointer;
   type: submit;
+  transition: backgroundColor 0.3s;
+  &:hover {
+    background-color: #e43051;
+  }
 `;
 export default DetailComment;

@@ -9,7 +9,6 @@ import DetailText from "../components/DetailText";
 import DetailComment from "../components/DetailComment";
 import CommentList from "../components/CommentList";
 import DetailMap from "../components/DetailMap";
-import CommentList from "../components/CommentList";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
@@ -31,10 +30,11 @@ const Detail = (props) => {
         <DetailText {...placeInfo} />
         <div className="re-card"></div>
       </div>
-      <DetailComment {...placeInfo} />
+      <div className="comment_list">
+        <DetailComment {...placeInfo} />
 
-      <CommentList {...comment_data} />
-
+        <CommentList {...comment_data} />
+      </div>
       <DetailMap {...placeInfo} />
     </DetailWrapS>
   );
@@ -50,6 +50,10 @@ const DetailWrapS = styled.div`
   .re-card {
     width: 33.33333333333333%;
     margin-left: 8.333333333333332%;
+  }
+
+  .comment_list {
+    padding: 48px 0;
   }
 `;
 export default Detail;

@@ -24,10 +24,9 @@ const CommentItem = (props) => {
     <React.Fragment>
       <Box>
         <Text margin="5px" padding="0" bold>
-          {userNickname}{" "}
+          {userNickname}
         </Text>
-        <Text margin="5px" padding="0">
-          {" "}
+        <Text size="14px" margin="5px" padding="0">
           {commentContent}
         </Text>
       </Box>
